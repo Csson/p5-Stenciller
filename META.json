@@ -53,7 +53,17 @@
       }
    },
    "release_status" : "stable",
-   "resources" : {},
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/Csson/p5-Stenciller/issues"
+      },
+      "homepage" : "https://metacpan.org/release/Stenciller",
+      "repository" : {
+         "type" : "git",
+         "url" : "https://github.com/Csson/p5-Stenciller.git",
+         "web" : "https://github.com/Csson/p5-Stenciller"
+      }
+   },
    "version" : "0.0001"
 }
 

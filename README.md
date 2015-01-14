@@ -58,6 +58,10 @@ The actual rendering is done by plugins. There are two plugins bundled in this d
 
 Custom plugins should be in the [Stenciller::Plugin](https://metacpan.org/pod/Stenciller::Plugin) namespace and consume the [Stenciller::Renderer](https://metacpan.org/pod/Stenciller::Renderer) role.
 
+# SOURCE
+
+[https://github.com/Csson/p5-Stenciller](https://github.com/Csson/p5-Stenciller)
+
 # HOMEPAGE
 
 [https://metacpan.org/release/Stenciller](https://metacpan.org/release/Stenciller)
