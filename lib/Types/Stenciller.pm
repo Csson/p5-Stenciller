@@ -14,7 +14,7 @@ declares Stencil, Renderer, Stenciller
 {
 
     class_type Stencil    => { class => 'Stenciller::Stencil' };
-    class_type Stenciller => { class => 'Stenciller::Wrap' };
+    class_type Stenciller => { class => 'Stenciller' };
     class_type Renderer   => { class => 'Stenciller::Renderer' };
     
 }

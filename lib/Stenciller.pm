@@ -5,17 +5,11 @@ use warnings;
 use Stenciller::Standard;
 use Stenciller::Stencil;
 
-package Stenciller;
-
+# PODNAME:
 # VERSION
 # ABSTRACT: Short intro
 
-sub new {
-    shift;
-    return Stenciller::Wrap->new(@_);
-}
-
-class Stenciller::Wrap using Moose {
+class Stenciller using Moose {
 
     use Data::Dump::Streamer;
     fun out {
