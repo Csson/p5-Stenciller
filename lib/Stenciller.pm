@@ -5,11 +5,18 @@ use warnings;
 use Stenciller::Standard;
 use Stenciller::Stencil;
 
+package Stenciller;
+
 # PODNAME:
 # VERSION
 # ABSTRACT: Convert textfiles to different output
 
-class Stenciller using Moose {
+sub new {
+    shift;
+    return Stenciller::Wrap->new(@_);
+}
+
+class Stenciller::Wrap using Moose {
 
     has filepath => (
         is => 'ro',
@@ -162,14 +169,12 @@ class Stenciller using Moose {
     }
 }
 
-
 1;
 
 __END__
 
 =pod
 
-:splint classname Stenciller
 
 =head1 SYNOPSIS
 
@@ -196,13 +201,9 @@ Stenciller reads a special fileformat and provides a way to convert the content 
 This is the basic layout. A stencil ends when a new stencil block is discovered (there is no set limit to the number of stencils in a file). The (optional) hash is for settings. Each stencil has five parts: C<before_input>, C<input>, C<between>, C<output> and C<after_output>. In addition to this
 there is a header before the first stencil.
 
-=head1 ATTRIBUTES
-
-:splint attributes
-
 =head1 METHODS
 
-:splint method render
+=head2 render
 
 =head1 PLUGINS
 

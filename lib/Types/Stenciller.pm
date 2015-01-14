@@ -13,7 +13,7 @@ declares Stencil, Renderer, Stenciller
 
 {
 
-    class_type Stenciller => { class => 'Stenciller' };
+    class_type Stenciller => { class => 'Stenciller::Wrap' };
     class_type Stencil    => { class => 'Stenciller::Stencil' };
 
 }
