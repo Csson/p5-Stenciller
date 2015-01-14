@@ -8,13 +8,13 @@ use Stenciller;
 
 ok 1;
 
-my $stenciler = Stenciller->new(filepath => 't/corpus/test-1.stencil');
+my $stenciller = Stenciller->new(filepath => 't/corpus/test-1.stencil');
 
-is $stenciler->count_stencils, 1, 'Correct number of stencils';
+is $stenciller->count_stencils, 1, 'Correct number of stencils';
 
-is joiner($stenciler->all_header_lines), "Intro text\ngoes  here\n", 'Got header text';
+is joiner($stenciller->all_header_lines), "Intro text\ngoes  here\n", 'Got header text';
 
-my $stencil = $stenciler->get_stencil(0);
+my $stencil = $stenciller->get_stencil(0);
 
 is joiner($stencil->all_before_input), "thing\n\nhere\n", 'Got before input';
 is joiner($stencil->all_input), "other thing\n", "Got input";
@@ -25,5 +25,5 @@ is joiner($stencil->all_after_output), "A text after output", "Got after output"
 done_testing;
 
 sub joiner {
-	return join "\n" => @_;
+    return join "\n" => @_;
 }

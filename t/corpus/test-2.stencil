@@ -1,15 +1,17 @@
 == stencil ==
 
+If you write this:
+
 --input--
 
-=pod
+    <%= badge '3' %>
 
-=head1 Text
+--end input--
 
---end input
+It renders to this:
 
 --output--
 
-<h1 id="Text">Text/h1>
+    <span class="badge">3</span>
 
 --end output--
