@@ -31,5 +31,3 @@ class Stenciller::Plugin::ToUnparsedText using Moose with Stenciller::Renderer {
         return ();
     }
 }
-
-1;
