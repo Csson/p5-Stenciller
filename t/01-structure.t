@@ -16,11 +16,16 @@ is joiner($stenciller->all_header_lines), "Intro text\ngoes  here\n", 'Got heade
 
 my $stencil = $stenciller->get_stencil(0);
 
-is joiner($stencil->all_before_input), "thing\n\nhere\n", 'Got before input';
-is joiner($stencil->all_input), "other thing\n", "Got input";
-is joiner($stencil->all_between), "in between\nis three lines\nin a row\n", 'Got between input and output';
-is joiner($stencil->all_output), "expecting this\n", "Got output";
-is joiner($stencil->all_after_output), "A text after output", "Got after output";
+
+cmp_deeply $stencil->before_input, ['thing', '', 'here', ''], 'Correct before input' or diag '';
+
+cmp_deeply $stencil->input, ['other thing', ''], 'Correct input';
+
+cmp_deeply $stencil->between, ['in between', 'is three lines', 'in a row', ''], 'Got between input and output';
+
+cmp_deeply $stencil->output, ['expecting this', ''], 'Got output';
+
+cmp_deeply $stencil->after_output, ['A text after output'], 'Got after output';
 
 done_testing;
 

@@ -12,6 +12,6 @@ my $stenciller = Stenciller->new(filepath => 't/corpus/test-2.stencil');
 
 is $stenciller->count_stencils, 1, 'Found stencils';
 
-is $stenciller->render('ToUnparsedText'), qq{If you write this:\n\n    <%= badge '3' %>\n\nIt renders to this:\n\n    <span class="badge">3</span>\n}, 'Unparsed pod';
+is $stenciller->render('ToHmlPreBlock'), qq{If you write this:\n\n    <%= badge '3' %>\n\nIt renders to this:\n\n    <span class="badge">3</span>\n}, 'Unparsed pod';
 
 done_testing;
