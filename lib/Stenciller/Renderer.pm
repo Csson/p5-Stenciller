@@ -9,3 +9,5 @@ role Stenciller::Renderer using Moose {
     requires 'render';
 
 }
+
+1;

@@ -83,9 +83,11 @@ class Stenciller::Wrap using Moose {
     method render(Str $plugin_name, @constructor_args) {
 
         my $plugin_class = "Stenciller::Plugin::$plugin_name";
-        if(!$plugin_class->does('Stenciller::Renderer')) {
-            croak("[$plugin_name] doesn't do the Stenciller::Renderer role. Quitting.");
-        }
+        eval "use $plugin_class";
+        die ("Cant 'use $plugin_class': $@") if $@;
+     #   if(!$plugin_class->does('Stenciller::Renderer')) {
+     #       croak("[$plugin_name] doesn't do the Stenciller::Renderer role. Quitting.");
+     #   }
         return $plugin_class->new(stenciller => $self, @constructor_args)->render;
     }
 

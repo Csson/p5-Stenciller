@@ -9,12 +9,13 @@ library Types::Stenciller
 
 extends Types::Standard, Types::TypeTiny, Types::Path::Tiny
 
-declares Stencil, Renderer
+declares Stencil, Renderer, Stenciller
 
 {
 
-    class_type Stencil => { class => 'Stenciller::Stencil' };
-    class_type Renderer => { class => 'Stenciller::Renderer' };
+    class_type Stencil    => { class => 'Stenciller::Stencil' };
+    class_type Stenciller => { class => 'Stenciller::Wrap' };
+    class_type Renderer   => { class => 'Stenciller::Renderer' };
     
 }
 
