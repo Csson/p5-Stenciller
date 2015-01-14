@@ -28,7 +28,7 @@ class Stenciller::Stencil using Moose {
         isa => Bool,
         default => 0,
     );
-    
+
     has line_number => (
         is => 'ro',
         isa => Int,
@@ -55,7 +55,6 @@ class Stenciller::Stencil using Moose {
             all_loop_values => 'elements',
         },
     );
-
 
     around BUILDARGS($orig: $class, @args) {
         my %args = @args;
@@ -97,3 +96,52 @@ class Stenciller::Stencil using Moose {
     }
 
 }
+
+__END__
+
+=pod
+
+:splint classname Stenciller
+
+=head1 SYNOPSIS
+
+    # In a plugin (this is pretty similar to what ToUnparsedText does)
+    sub render {
+        my $self = shift;
+        my @out = ();
+
+        STENCIL:
+        foreach my $stencil ($self->stenciller->all_stencils) {
+            push @out => join "\n" => $stencil->all_before_input;
+            push @out => join "\n" => $stencil->all_input;
+            push @out => join "\n" => $stencil->all_between;
+            push @out => join "\n" => $stencil->all_output;
+            push @out => join "\n" => $stencil->all_after_output;
+        }
+        return join "\n" => @out;
+    }
+
+=head1 DESCRIPTION
+
+Stenciller reads a special fileformat and provides a way to convert the content into different types of output. For example, it can be used to create documentation and tests from the same source file.
+
+=head2 File format
+
+    == stencil {} ==
+
+    --input--
+
+    --end input--
+
+    --output--
+
+    --end output--
+
+This is the basic layout. A stencil ends when a new stencil block is discovered (there is no set limit to the number of stencils in a file). The (optional) hash is for settings. Each stencil has five parts: C<before_input>, C<input>, C<between>, C<output> and C<after_output>. In addition to this
+there is a header before the first stencil.
+
+=head1 ATTRIBUTES
+
+:splint attributes
+
+=cut

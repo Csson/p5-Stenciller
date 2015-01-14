@@ -7,31 +7,30 @@ use Stenciller::Stencil;
 
 # PODNAME:
 # VERSION
-# ABSTRACT: Short intro
+# ABSTRACT: Convert textfiles to different output
 
 class Stenciller using Moose {
-
-    use Data::Dump::Streamer;
-    fun out {
-        warn Dump(shift)->Out;
-    }
 
     has filepath => (
         is => 'ro',
         isa => File,
         required => 1,
         coerce => 1,
+        documentation => 'The textfile to parse.',
     );
     has is_utf8 => (
         is => 'ro',
         isa => Bool,
         default => 1,
+        documentation => 'Determines how the stencil file is read.'
     );
     has stencils => (
         is => 'rw',
         isa => ArrayRef[Stencil],
         traits => ['Array'],
         default => sub { [ ] },
+        documentation => 'After parsing, this contains all parsed stencils.',
+        init_arg => undef,
         handles => {
             add_stencil => 'push',
             all_stencils => 'elements',
@@ -44,6 +43,7 @@ class Stenciller using Moose {
         isa => ArrayRef[Str],
         traits => ['Array'],
         default => sub { [] },
+        documentation => 'After parsing, this contains all lines in the header.',
         handles => {
             add_header_line => 'push',
             all_header_lines => 'elements',
@@ -53,28 +53,23 @@ class Stenciller using Moose {
         is => 'ro',
         isa => Bool,
         default => 1,
+        documentation => 'If a stencil has no input content, skip entire stencil.',
     );
     has skip_if_output_empty => (
         is => 'ro',
         isa => Bool,
         default => 1,
+        documentation => 'If a stencil has no output content, skip entire stencil.',
     );
-    has plugins => (
-        is => 'rw',
-        isa => ArrayRef[Renderer],
-        default => sub { [] },
-        traits => ['Array'],
-        handles => {
-            all_plugins => 'elements',
-        }
-    );
-    
 
     method BUILD {
         $self->parse;
     }
 
-    method render(Str $plugin_name, @constructor_args) {
+    method render(Str $plugin_name       does doc('Plugin to render contents with.'),
+                      @constructor_args  does doc('Constructor arguments for the plugin.')
+              --> Str                    does doc('Returns the rendered contents.')
+    ) {
 
         my $plugin_class = "Stenciller::Plugin::$plugin_name";
         eval "use $plugin_class";
@@ -109,10 +104,11 @@ class Stenciller using Moose {
                 my $settings = $1 ? $self->eval($1) : {};
 
                 $stencil = Stenciller::Stencil->new(
-                    name => exists $settings->{'name'} ? delete $settings->{'name'} : $self->filepath->basename . "-$line_count",
-                    loop_values => delete $settings->{'loop'},
-                    line_number => $line_count,
-                    maybe skip  => delete $settings->{'skip'},
+                            name => exists $settings->{'name'} ? delete $settings->{'name'} : $self->filepath->basename . "-$line_count",
+                            loop_values => delete $settings->{'loop'},
+                            line_number => $line_count,
+                      maybe skip  => delete $settings->{'skip'},
+                    provided scalar keys %{ $settings }, extra_settings => $settings,
                 );
                 $environment = 'before_input';
             }
@@ -169,22 +165,55 @@ class Stenciller using Moose {
 
 1;
 
-
 __END__
 
 =pod
 
+:splint classname Stenciller
+
 =head1 SYNOPSIS
 
     use Stenciller;
+    my $stenciller = Stenciller->new(filepath => 't/corpus/test-1.stencil');
+    my $content = $stenciller->render('ToUnparsedText');
 
 =head1 DESCRIPTION
 
-Stenciller is ...
+Stenciller reads a special fileformat and provides a way to convert the content into different types of output. For example, it can be used to create documentation and tests from the same source file.
 
-=head1 SEE ALSO
+=head2 File format
+
+    == stencil {} ==
+
+    --input--
+
+    --end input--
+
+    --output--
+
+    --end output--
+
+This is the basic layout. A stencil ends when a new stencil block is discovered (there is no set limit to the number of stencils in a file). The (optional) hash is for settings. Each stencil has five parts: C<before_input>, C<input>, C<between>, C<output> and C<after_output>. In addition to this
+there is a header before the first stencil.
+
+=head1 ATTRIBUTES
+
+:splint attributes
+
+=head1 METHODS
+
+:splint method render
+
+=head1 PLUGINS
+
+The actual rendering is done by plugins. There are two plugins bundled in this distribution:
+
+=for :list
+* L<Stenciller::Plugin::ToUnparsedText>
+* L<Stenciller::Plugin::ToHtmlPreBlock>
+
+Custom plugins should be in the L<Stenciller::Plugin> namespace and consume the L<Stenciller::Renderer> role.
 
 =cut
 
-== stencil { name => 'test1', is_example => 1, is_test => 0, loop => [qw/thing other_thing/] } ==
 

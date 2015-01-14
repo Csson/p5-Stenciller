@@ -12,7 +12,6 @@ package Stenciller::Standard {
     use Path::Tiny();
     use PerlX::Maybe();
     use Carp();
-    use syntax;
 
     sub import {
         my $class = shift;
@@ -26,7 +25,6 @@ package Stenciller::Standard {
             'MooseX::AttributeDocumented' => [],
             'PerlX::Maybe'      => [qw/maybe provided/],
             'Carp'              => [qw/carp/],
-            'syntax'            => ['qs'],
         );
 
         $class->SUPER::import(%opts);
