@@ -1,0 +1,17 @@
+== stencil { } ==
+
+thing
+
+--input--
+
+other thing
+
+--input--
+
+in between
+
+--output--
+
+expecting this
+
+--output--
