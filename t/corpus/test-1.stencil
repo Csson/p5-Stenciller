@@ -1,17 +1,43 @@
-== stencil { } ==
+Intro text
+goes  here
+
+== stencil { }  ==
 
 thing
+
+here
 
 --input--
 
 other thing
 
---input--
+--end input---------------------------------
 
 in between
+is three lines
+in a row
+
+------output--
+
+expecting this
+
+--end output--
+
+A text after output
+== stencil {} ==
+
+--input--
+
+--input--
+--output--
 
 --output--
 
-expecting this
+== stencil {} ==
+
+--input--
+
+--input--
+--output--
 
 --output--

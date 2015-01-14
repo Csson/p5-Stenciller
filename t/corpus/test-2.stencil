@@ -1,0 +1,15 @@
+== stencil ==
+
+--input--
+
+=pod
+
+=head1 Text
+
+--end input
+
+--output--
+
+<h1 id="Text">Text/h1>
+
+--end output--
