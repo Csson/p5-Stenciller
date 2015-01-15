@@ -10,11 +10,14 @@ Revision history for Stenciller
  [Enhancements]
 
  [Meta]
- - Use DZP::MetaProvides.
 
  [New Features]
 
  [Revision]
+
+0.1004 2015-01-15T12:51:26Z CET
+ [Meta]
+ - Use DZP::MetaProvides.
 
 0.1003 2015-01-15T04:04:15Z CET
  [Meta]

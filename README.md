@@ -4,7 +4,7 @@ Stenciller - Convert textfiles to different output
 
 # VERSION
 
-Version 0.1004, released 2015-01-15.
+Version 0.1005, released 2015-01-16.
 
 # SYNOPSIS
 
