@@ -8,12 +8,6 @@ class Stenciller::Plugin::ToHtmlPreBlock using Moose with Stenciller::Renderer {
 
     use HTML::Entities 'encode_entities';
 
-    has stenciller => (
-        is => 'ro',
-        isa => Stenciller,
-        required => 1,
-    );
-
     method render {
         my @out = ();
 

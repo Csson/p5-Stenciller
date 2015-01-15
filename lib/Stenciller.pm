@@ -8,7 +8,7 @@ use Stenciller::Stencil;
 # VERSION
 # ABSTRACT: Convert textfiles to different output
 
-class Stenciller using Moose {
+class Stenciller using Moose with Stenciller::Utils {
 
     has filepath => (
         is => 'ro',
@@ -72,7 +72,7 @@ class Stenciller using Moose {
     ) {
 
         my $plugin_class = "Stenciller::Plugin::$plugin_name";
-        eval "use $plugin_class";
+        $self->eval("use $plugin_class");
         die ("Cant 'use $plugin_class': $@") if $@;
      #   if(!$plugin_class->does('Stenciller::Renderer')) {
      #       croak("[$plugin_name] doesn't do the Stenciller::Renderer role. Quitting.");
@@ -101,7 +101,7 @@ class Stenciller using Moose {
             if(any { $environment eq $_ } (qw/header next_stencil/)) {
                 $self->add_header_line($line) and next LINE if $line !~ $stencil_start;
 
-                my $settings = $1 ? $self->eval($1) : {};
+                my $settings = $1 ? $self->eval_to_hashref($1, $self->filepath) : {};
 
                 $stencil = Stenciller::Stencil->new(
                             name => exists $settings->{'name'} ? delete $settings->{'name'} : $self->filepath->basename . "-$line_count",
@@ -155,11 +155,6 @@ class Stenciller using Moose {
         }
     }
 
-    method eval(Str $possible_hash --> HashRef) {
-        my $stencil_settings = eval $possible_hash;
-        die sprintf "Can't parse stencil start: <%s> in %s: %s", $possible_hash, $self->filepath, $@ if $@;
-        return $stencil_settings;
-    }
 }
 
 __END__
