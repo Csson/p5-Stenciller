@@ -1,12 +1,12 @@
 use Stenciller::Standard;
 
 # VERSION
-# ABSTRACT: A role for plugins to consume
+# ABSTRACT: A role for transformer plugins to consume
 # PODCLASSNAME
 
-role Stenciller::Renderer using Moose {
+role Stenciller::Transformer using Moose {
 
-    requires 'render';
+    requires 'transformer';
 
     has stenciller => (
         is => 'ro',
@@ -20,22 +20,22 @@ role Stenciller::Renderer using Moose {
 
 =pod
 
-:splint classname Stenciller::Renderer
+:splint classname Stenciller::Transformer
 
 =head1 SYNOPSIS
 
     package Stenciller::Plugin::MyNewRenderer;
 
     use Moose;
-    with 'Stenciller::Renderer';
+    with 'Stenciller::Transformer';
 
-    sub render {
+    sub transformer {
         ...
     }
 
 =head1 DESCRIPTION
 
-This is the role that all L<Stenciller> plugins must consume. It requires a C<render> method to be implemented.
+This is the role that all L<Stenciller> plugins must consume. It requires a C<transformer> method to be implemented.
 
 =head1 ATTRIBUTES
 

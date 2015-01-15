@@ -4,7 +4,7 @@ use Stenciller::Standard;
 
 role Stenciller::Utils using Moose {
 
-    method eval_to_hashref(Str $possible_hash!, Path $faulty_file! --> HashRef) {
+    method eval_to_hashref(Str $possible_hash!, Path|Str $faulty_file! --> HashRef) {
         my $settings = eval $possible_hash;
         die sprintf "Can't parse stencil start: <%s> in %s: %s", $possible_hash, $faulty_file, $@ if $@;
         return $settings;

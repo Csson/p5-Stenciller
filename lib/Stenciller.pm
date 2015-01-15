@@ -6,7 +6,7 @@ use Stenciller::Standard;
 use Stenciller::Stencil;
 # PODCLASSNAME:
 # VERSION
-# ABSTRACT: Convert textfiles to different output
+# ABSTRACT: Transforms textfiles to different output
 
 class Stenciller using Moose with Stenciller::Utils {
 
@@ -66,9 +66,9 @@ class Stenciller using Moose with Stenciller::Utils {
         $self->parse;
     }
 
-    method render(Str $plugin_name       does doc('Plugin to render contents with.'),
-                      @constructor_args  does doc('Constructor arguments for the plugin.')
-              --> Str                    does doc('Returns the rendered contents.')
+    method transform(Str $plugin_name         does doc('Plugin to read contents with.'),
+                         @constructor_args    does doc('Constructor arguments for the plugin.')
+                 --> Str                      does doc('Returns the transformed contents.')
     ) {
 
         my $plugin_class = "Stenciller::Plugin::$plugin_name";
@@ -167,7 +167,7 @@ __END__
 
     use Stenciller;
     my $stenciller = Stenciller->new(filepath => 't/corpus/test-1.stencil');
-    my $content = $stenciller->render('ToUnparsedText');
+    my $content = $stenciller->transforme('ToUnparsedText');
 
 =head1 DESCRIPTION
 
@@ -194,17 +194,17 @@ there is a header before the first stencil.
 
 =head1 METHODS
 
-:splint method render
+:splint method transforme
 
 =head1 PLUGINS
 
-The actual rendering is done by plugins. There are two plugins bundled in this distribution:
+The actual transforming is done by plugins. There are two plugins bundled in this distribution:
 
 =for :list
 * L<Stenciller::Plugin::ToUnparsedText>
 * L<Stenciller::Plugin::ToHtmlPreBlock>
 
-Custom plugins should be in the L<Stenciller::Plugin> namespace and consume the L<Stenciller::Renderer> role.
+Custom plugins should be in the L<Stenciller::Plugin> namespace and consume the L<Stenciller::Transformer> role.
 
 =cut
 

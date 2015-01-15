@@ -1,14 +1,14 @@
 use Stenciller::Standard;
 
 # VERSION
-# ABSTRACT: A plugin that renders to html
+# ABSTRACT: A plugin that transforms to html
 # PODCLASSNAME:
 
-class Stenciller::Plugin::ToHtmlPreBlock using Moose with Stenciller::Renderer {
+class Stenciller::Plugin::ToHtmlPreBlock using Moose with Stenciller::Transformer {
 
     use HTML::Entities 'encode_entities';
 
-    method render {
+    method transforme {
         my @out = ();
 
         STENCIL:
@@ -49,7 +49,7 @@ __END__
 
     use Stenciller;
     my $stenciller = Stenciller->new(filepath => 't/corpus/test-1.stencil');
-    my $content = $stenciller->render('ToHtmlPreBlock');
+    my $content = $stenciller->transforme('ToHtmlPreBlock');
 
 =head1 DESCRIPTION
 

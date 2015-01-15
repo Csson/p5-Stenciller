@@ -1,12 +1,12 @@
 use Stenciller::Standard;
 
 # VERSION
-# ABSTRACT: A plugin that just renders all the text
+# ABSTRACT: A plugin that doesn't transforme the text the text
 # PODCLASSNAME:
 
-class Stenciller::Plugin::ToUnparsedText using Moose with Stenciller::Renderer {
+class Stenciller::Plugin::ToUnparsedText using Moose with Stenciller::Transformer {
 
-    method render {
+    method transforme {
         my @out = ();
 
         STENCIL:
@@ -31,7 +31,7 @@ class Stenciller::Plugin::ToUnparsedText using Moose with Stenciller::Renderer {
 
     use Stenciller;
     my $stenciller = Stenciller->new(filepath => 't/corpus/test-1.stencil');
-    my $content = $stenciller->render('ToUnparsedText');
+    my $content = $stenciller->transforme('ToUnparsedText');
 
 =head1 DESCRIPTION
 
