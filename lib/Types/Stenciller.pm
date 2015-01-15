@@ -4,10 +4,12 @@ use warnings;
 use Moops;
 
 # VERSION
-# PODNAME:
+# PODCLASSNAME:
+# ABSTRACT: Types for Stenciller
+
 library Types::Stenciller
 
-extends Types::Standard, Types::TypeTiny, Types::Path::Tiny
+extends Types::Standard, Types::Path::Tiny
 
 declares Stencil, Renderer, Stenciller
 
@@ -30,13 +32,14 @@ declares Stencil, Renderer, Stenciller
 
 =head1 DESCRIPTION
 
-Defines a few types used in the C<Stenciller> namespace.
+Defines a couple of types used in the C<Stenciller> namespace.
 
 =head1 TYPES
 
 =for :list
-
 * C<Stencil> is a L<Stenciller::Stencil>
 * C<Stenciller> is a L<Stenciller>
+
+It also inherits from L<Types::Standard> and L<Types::Path::Tiny>.
 
 =cut

@@ -3,7 +3,7 @@ use 5.14.0;
 package Stenciller::Standard {
 
     # VERSION
-    # ABSTRACT: Use for all
+    # ABSTRACT: Import to all
 
     use base 'Moops';
     use List::AllUtils();

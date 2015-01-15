@@ -1,19 +1,23 @@
 use Stenciller::Standard;
 
 # VERSION
-# ABSTRACT: Short intro
-# PODNAME:
+# ABSTRACT: One part of a file
+# PODCLASSNAME:
 
 class Stenciller::Stencil using Moose {
 
     my @attrs = qw/before_input input between output after_output/;
 
+    my $order = 1;
     foreach my $attr (@attrs) {
         has $attr => (
-            is => 'rw',
+            is => 'ro',
             isa => ArrayRef[Str],
             default => sub { [] },
             traits => ['Array'],
+            init_arg => undef,
+            documentation_order => ++$order,
+            documentation => sprintf ('Holds all lines of the %s section.', $attr),
             handles => {
                 "has_$attr"    => 'count',
                 "add_$attr"    => 'push',
@@ -27,17 +31,20 @@ class Stenciller::Stencil using Moose {
         is => 'ro',
         isa => Bool,
         default => 0,
+        documentation => 'Should the Stencil not be included in the result?',
     );
 
     has line_number => (
         is => 'ro',
         isa => Int,
+        documentation => 'Can be referenced in the output for easier backtracking.',
     );
     has extra_settings => (
         is => 'ro',
         isa => HashRef,
         default => sub { { } },
         traits => ['Hash'],
+        documentation => 'Any extra key-value pairs in the stencil header.',
         handles => {
             get_extra_setting => 'get',
             set_extra_setting => 'set',
@@ -49,6 +56,7 @@ class Stenciller::Stencil using Moose {
         isa => ArrayRef,
         default => sub { [] },
         traits => ['Array'],
+        documentation_order => 0,
         handles => {
             has_loop_values => 'count',
             add_loop_value => 'get',
@@ -101,7 +109,7 @@ __END__
 
 =pod
 
-:splint classname Stenciller
+:splint classname Stenciller::Stencil
 
 =head1 SYNOPSIS
 
@@ -123,22 +131,7 @@ __END__
 
 =head1 DESCRIPTION
 
-Stenciller reads a special fileformat and provides a way to convert the content into different types of output. For example, it can be used to create documentation and tests from the same source file.
-
-=head2 File format
-
-    == stencil {} ==
-
-    --input--
-
-    --end input--
-
-    --output--
-
-    --end output--
-
-This is the basic layout. A stencil ends when a new stencil block is discovered (there is no set limit to the number of stencils in a file). The (optional) hash is for settings. Each stencil has five parts: C<before_input>, C<input>, C<between>, C<output> and C<after_output>. In addition to this
-there is a header before the first stencil.
+A C<Stencil> is one section of the file format defined in L<Stenciller>.
 
 =head1 ATTRIBUTES
 

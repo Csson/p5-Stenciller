@@ -1,8 +1,8 @@
 use Stenciller::Standard;
 
 # VERSION
-# ABSTRACT: ...
-# PODNAME:
+# ABSTRACT: A plugin that just renders all the text
+# PODCLASSNAME:
 
 class Stenciller::Plugin::ToUnparsedText using Moose with Stenciller::Renderer {
 

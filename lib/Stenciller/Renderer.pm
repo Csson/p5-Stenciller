@@ -1,8 +1,8 @@
 use Stenciller::Standard;
 
 # VERSION
-# ABSTRACT: ...
-# PODNAME:
+# ABSTRACT: A role for plugins to consume
+# PODCLASSNAME
 
 role Stenciller::Renderer using Moose {
 

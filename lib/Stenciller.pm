@@ -4,16 +4,19 @@ use warnings;
 
 use Stenciller::Standard;
 use Stenciller::Stencil;
-
-package Stenciller;
-
 # PODNAME:
 # VERSION
 # ABSTRACT: Convert textfiles to different output
 
+package Stenciller;
+
+
 sub new {
     shift;
-    return Stenciller::Wrap->new(@_);
+    Stenciller::Wrap->new(@_);
+}
+sub meta {
+    Stenciller::Wrap->meta;
 }
 
 class Stenciller::Wrap using Moose {
@@ -32,7 +35,7 @@ class Stenciller::Wrap using Moose {
         documentation => 'Determines how the stencil file is read.'
     );
     has stencils => (
-        is => 'rw',
+        is => 'ro',
         isa => ArrayRef[Stencil],
         traits => ['Array'],
         default => sub { [ ] },
@@ -46,10 +49,11 @@ class Stenciller::Wrap using Moose {
         },
     );
     has header_lines => (
-        is => 'rw',
+        is => 'ro',
         isa => ArrayRef[Str],
         traits => ['Array'],
         default => sub { [] },
+        init_arg => undef,
         documentation => 'After parsing, this contains all lines in the header.',
         handles => {
             add_header_line => 'push',
@@ -169,12 +173,11 @@ class Stenciller::Wrap using Moose {
     }
 }
 
-1;
-
 __END__
 
 =pod
 
+:splint classname Stenciller
 
 =head1 SYNOPSIS
 
@@ -201,9 +204,13 @@ Stenciller reads a special fileformat and provides a way to convert the content 
 This is the basic layout. A stencil ends when a new stencil block is discovered (there is no set limit to the number of stencils in a file). The (optional) hash is for settings. Each stencil has five parts: C<before_input>, C<input>, C<between>, C<output> and C<after_output>. In addition to this
 there is a header before the first stencil.
 
+=head1 ATTRIBUTES
+
+:splint attributes
+
 =head1 METHODS
 
-=head2 render
+:splint method render
 
 =head1 PLUGINS
 

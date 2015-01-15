@@ -6,6 +6,7 @@ Revision history for Stenciller
  [Bug Fixes]
 
  [Documentation]
+ - Fixed faulty layout.
 
  [Enhancements]
 
@@ -14,6 +15,10 @@ Revision history for Stenciller
  [New Features]
 
  [Revision]
+
+0.1001 2015-01-15T00:58:34Z CET
+ [Documentation]
+ - Minor tweaks.
 
 0.1000 2015-01-15T00:50:12Z CET
  - Initial release

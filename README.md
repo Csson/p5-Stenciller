@@ -1,10 +1,10 @@
 # NAME
 
-Stenciller.pm - Convert textfiles to different output
+Stenciller - Convert textfiles to different output
 
 # VERSION
 
-Version 0.1001, released 2015-01-15.
+Version 0.1002, released 2015-01-15.
 
 # SYNOPSIS
 
@@ -30,6 +30,20 @@ Stenciller reads a special fileformat and provides a way to convert the content 
 
 This is the basic layout. A stencil ends when a new stencil block is discovered (there is no set limit to the number of stencils in a file). The (optional) hash is for settings. Each stencil has five parts: `before_input`, `input`, `between`, `output` and `after_output`. In addition to this
 there is a header before the first stencil.
+
+# ATTRIBUTES
+
+## filepath
+
+## is\_utf8
+
+## skip\_if\_input\_empty
+
+## skip\_if\_output\_empty
+
+## header\_lines
+
+## stencils
 
 # METHODS
 

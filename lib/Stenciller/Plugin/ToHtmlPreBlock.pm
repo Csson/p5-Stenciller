@@ -1,8 +1,8 @@
 use Stenciller::Standard;
 
 # VERSION
-# ABSTRACT: ...
-# PODNAME:
+# ABSTRACT: A plugin that renders to html
+# PODCLASSNAME:
 
 class Stenciller::Plugin::ToHtmlPreBlock using Moose with Stenciller::Renderer {
 
