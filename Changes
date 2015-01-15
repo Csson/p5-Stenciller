@@ -10,11 +10,15 @@ Revision history for Stenciller
  [Enhancements]
 
  [Meta]
- - Added missing prereq.
+ - Use DZP::MetaProvides.
 
  [New Features]
 
  [Revision]
+
+0.1003 2015-01-15T04:04:15Z CET
+ [Meta]
+ - Added missing prereq.
 
 0.1002 2015-01-15T03:53:11Z CET
  [Documentation]

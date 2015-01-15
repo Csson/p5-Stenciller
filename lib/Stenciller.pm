@@ -4,22 +4,11 @@ use warnings;
 
 use Stenciller::Standard;
 use Stenciller::Stencil;
-# PODNAME:
+# PODCLASSNAME:
 # VERSION
 # ABSTRACT: Convert textfiles to different output
 
-package Stenciller;
-
-
-sub new {
-    shift;
-    Stenciller::Wrap->new(@_);
-}
-sub meta {
-    Stenciller::Wrap->meta;
-}
-
-class Stenciller::Wrap using Moose {
+class Stenciller using Moose {
 
     has filepath => (
         is => 'ro',

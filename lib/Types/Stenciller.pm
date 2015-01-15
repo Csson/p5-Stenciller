@@ -15,7 +15,7 @@ declares Stencil, Renderer, Stenciller
 
 {
 
-    class_type Stenciller => { class => 'Stenciller::Wrap' };
+    class_type Stenciller => { class => 'Stenciller' };
     class_type Stencil    => { class => 'Stenciller::Stencil' };
 
 }
@@ -37,8 +37,8 @@ Defines a couple of types used in the C<Stenciller> namespace.
 =head1 TYPES
 
 =for :list
-* C<Stencil> is a L<Stenciller::Stencil>
 * C<Stenciller> is a L<Stenciller>
+* C<Stencil> is a L<Stenciller::Stencil>
 
 It also inherits from L<Types::Standard> and L<Types::Path::Tiny>.
 

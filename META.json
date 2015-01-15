@@ -53,6 +53,28 @@
          }
       }
    },
+   "provides" : {
+      "Stenciller" : {
+         "file" : "lib/Stenciller.pm",
+         "version" : "0.1004"
+      },
+      "Stenciller::Plugin::ToHtmlPreBlock" : {
+         "file" : "lib/Stenciller/Plugin/ToHtmlPreBlock.pm",
+         "version" : "0.1004"
+      },
+      "Stenciller::Plugin::ToUnparsedText" : {
+         "file" : "lib/Stenciller/Plugin/ToUnparsedText.pm",
+         "version" : "0.1004"
+      },
+      "Stenciller::Renderer" : {
+         "file" : "lib/Stenciller/Renderer.pm",
+         "version" : "0.1004"
+      },
+      "Stenciller::Stencil" : {
+         "file" : "lib/Stenciller/Stencil.pm",
+         "version" : "0.1004"
+      }
+   },
    "release_status" : "stable",
    "resources" : {
       "bugtracker" : {
@@ -65,6 +87,6 @@
          "web" : "https://github.com/Csson/p5-Stenciller"
       }
    },
-   "version" : "0.1003"
+   "version" : "0.1004"
 }
 
