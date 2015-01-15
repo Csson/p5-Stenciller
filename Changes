@@ -6,15 +6,19 @@ Revision history for Stenciller
  [Bug Fixes]
 
  [Documentation]
- - Fixed faulty layout.
 
  [Enhancements]
 
  [Meta]
+ - Added missing prereq.
 
  [New Features]
 
  [Revision]
+
+0.1002 2015-01-15T03:53:11Z CET
+ [Documentation]
+ - Fixed faulty layout.
 
 0.1001 2015-01-15T00:58:34Z CET
  [Documentation]

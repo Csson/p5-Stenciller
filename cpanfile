@@ -4,6 +4,7 @@ requires 'HTML::Entities';
 requires 'List::AllUtils';
 requires 'Moops';
 requires 'MooseX::AttributeDocumented';
+requires 'Kavorka::TraitFor::Parameter::doc';
 requires 'Path::Tiny';
 requires 'PerlX::Maybe';
 
