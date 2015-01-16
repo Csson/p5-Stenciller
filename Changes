@@ -2,12 +2,35 @@ Revision history for Stenciller
 
 {{$NEXT}}
  [API Changes]
- - Renamed the Stenciller::Renderer role Stenciller::Transformer (they don't render anything)
 
  [Bug Fixes]
- - Also transform the headers in stencil files
 
  [Documentation]
+
+ [Enhancements]
+
+ [Meta]
+
+ [New Features]
+
+ [Revision]
+
+0.1100 2015-01-16T20:42:04Z CET
+ [API Changes]
+ - Removed the Stenciller::Renderer role, again.
+
+ [Enhancements]
+ - Improved rendering of both bundled transformers.
+ - Improved tests (added test prereq: Test::Differences).
+
+0.1005 2015-01-16T01:57:34Z CET
+ [API Changes]
+ - Renamed the Stenciller::Renderer role Stenciller::Transformer (they
+   don't render anything)
+
+ [Bug Fixes]
+ - Also transform the headers in stencil files.
+ - Removed a forgotten use statement.
 
  [Enhancements]
  - Ensure that transformers actually do the Transformer role.
@@ -16,9 +39,8 @@ Revision history for Stenciller
  - Added Croak.
 
  [New Features]
- - Created a new role (named Stenciller::Renderer..) to be used by things that render.
-
- [Revision]
+ - Created a new role (named Stenciller::Renderer..) to be used by things
+   that render.
 
 0.1004 2015-01-15T12:51:26Z CET
  [Meta]
