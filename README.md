@@ -1,6 +1,6 @@
 # NAME
 
-Stenciller - Convert textfiles to different output
+Stenciller - Transforms textfiles to different output
 
 # VERSION
 
@@ -10,7 +10,7 @@ Version 0.1005, released 2015-01-16.
 
     use Stenciller;
     my $stenciller = Stenciller->new(filepath => 't/corpus/test-1.stencil');
-    my $content = $stenciller->render('ToUnparsedText');
+    my $content = $stenciller->transforme('ToUnparsedText');
 
 # DESCRIPTION
 
@@ -47,16 +47,14 @@ there is a header before the first stencil.
 
 # METHODS
 
-## render
-
 # PLUGINS
 
-The actual rendering is done by plugins. There are two plugins bundled in this distribution:
+The actual transforming is done by plugins. There are two plugins bundled in this distribution:
 
 - [Stenciller::Plugin::ToUnparsedText](https://metacpan.org/pod/Stenciller::Plugin::ToUnparsedText)
 - [Stenciller::Plugin::ToHtmlPreBlock](https://metacpan.org/pod/Stenciller::Plugin::ToHtmlPreBlock)
 
-Custom plugins should be in the [Stenciller::Plugin](https://metacpan.org/pod/Stenciller::Plugin) namespace and consume the [Stenciller::Renderer](https://metacpan.org/pod/Stenciller::Renderer) role.
+Custom plugins should be in the [Stenciller::Plugin](https://metacpan.org/pod/Stenciller::Plugin) namespace and consume the [Stenciller::Transformer](https://metacpan.org/pod/Stenciller::Transformer) role.
 
 # SOURCE
 

@@ -7,6 +7,7 @@ requires 'MooseX::AttributeDocumented';
 requires 'Kavorka::TraitFor::Parameter::doc';
 requires 'Path::Tiny';
 requires 'PerlX::Maybe';
+requires 'Carp';
 
 on test => sub {
     requires 'Test::More', '0.96';

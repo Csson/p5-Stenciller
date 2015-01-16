@@ -1,5 +1,5 @@
 {
-   "abstract" : "Convert textfiles to different output",
+   "abstract" : "Transforms textfiles to different output",
    "author" : [
       "Erik Carlsson <info@code301.com>"
    ],
@@ -36,6 +36,7 @@
       },
       "runtime" : {
          "requires" : {
+            "Carp" : "0",
             "HTML::Entities" : "0",
             "Kavorka::TraitFor::Parameter::doc" : "0",
             "List::AllUtils" : "0",
@@ -76,6 +77,10 @@
       },
       "Stenciller::Stencil" : {
          "file" : "lib/Stenciller/Stencil.pm",
+         "version" : "0.1005"
+      },
+      "Stenciller::Transformer" : {
+         "file" : "lib/Stenciller/Transformer.pm",
          "version" : "0.1005"
       },
       "Stenciller::Utils" : {

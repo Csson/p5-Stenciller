@@ -2,16 +2,21 @@ Revision history for Stenciller
 
 {{$NEXT}}
  [API Changes]
+ - Renamed the Stenciller::Renderer role Stenciller::Transformer (they don't render anything)
 
  [Bug Fixes]
+ - Also transform the headers in stencil files
 
  [Documentation]
 
  [Enhancements]
+ - Ensure that transformers actually do the Transformer role.
 
  [Meta]
+ - Added Croak.
 
  [New Features]
+ - Created a new role (named Stenciller::Renderer..) to be used by things that render.
 
  [Revision]
 
