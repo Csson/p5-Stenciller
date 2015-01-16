@@ -17,7 +17,7 @@ done_testing;
 
 sub result {
     return join '' => qq{Header
- 
+
 lines
 
 <p>If you write this:

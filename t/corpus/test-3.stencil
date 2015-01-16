@@ -1,8 +1,8 @@
 Header
- 
+
 lines
 
-== stencil ==
+== stencil {} ==
 
 If you write this:
 
