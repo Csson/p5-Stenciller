@@ -12,7 +12,7 @@ my $stenciller = Stenciller->new(filepath => 't/corpus/test-2.stencil');
 
 is $stenciller->count_stencils, 1, 'Found stencils';
 
-is $stenciller->render('ToHtmlPreBlock'), result(), 'Unparsed pod';
+is $stenciller->transform('ToHtmlPreBlock'), result(), 'Unparsed pod';
 
 done_testing;
 
@@ -24,7 +24,7 @@ If you write this:
     &lt;%= badge &#39;3&#39; %&gt;
 
 </pre><p>
-It renders to this:
+It becomes this:
 
 </p><pre>
     &lt;span class=&quot;badge&quot;&gt;3&lt;/span&gt;
