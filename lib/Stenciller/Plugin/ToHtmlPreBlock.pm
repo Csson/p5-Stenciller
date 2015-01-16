@@ -9,7 +9,8 @@ class Stenciller::Plugin::ToHtmlPreBlock using Moose with Stenciller::Transforme
     use HTML::Entities 'encode_entities';
 
     method transform {
-        my @out = $self->stenciller->all_header_lines;
+
+        my @out = ($self->stenciller->all_header_lines);
 
         STENCIL:
         foreach my $stencil ($self->stenciller->all_stencils) {
@@ -21,19 +22,19 @@ class Stenciller::Plugin::ToHtmlPreBlock using Moose with Stenciller::Transforme
                          $self->normal($stencil->all_after_output);
 
         }
-        return join '' => @out;
+        return join "\n" => @out;
     }
 
     method normal(@lines) {
         return () if !scalar @lines;
-        return join "\n" => '<p>', @lines, '</p>';
+        return join '' => ('<p>', join ("\n" => @lines), '</p>');
     }
 
     method pre(@lines) {
         return () if !scalar @lines;
 
         my @encoded_lines = map {  encode_entities($_) } @lines;
-        return  join "\n" => '<pre>', @encoded_lines, '</pre>';
+        return join '' => ('<pre>', join ("\n" =>  @encoded_lines), '</pre>');
     }
 }
 
