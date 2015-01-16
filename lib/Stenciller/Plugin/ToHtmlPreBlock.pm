@@ -9,7 +9,7 @@ class Stenciller::Plugin::ToHtmlPreBlock using Moose with Stenciller::Transforme
     use HTML::Entities 'encode_entities';
 
     method transform {
-        my @out = ($self->stenciller->all_header_lines);
+        my @out = $self->stenciller->all_header_lines;
 
         STENCIL:
         foreach my $stencil ($self->stenciller->all_stencils) {
