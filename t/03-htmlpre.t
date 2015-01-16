@@ -3,7 +3,6 @@ use warnings FATAL => 'all';
 use Test::More;
 use Test::Deep;
 use if $ENV{'AUTHOR_TESTING'}, 'Test::Warnings';
-use syntax 'qi';
 use Stenciller;
 
 ok 1;
