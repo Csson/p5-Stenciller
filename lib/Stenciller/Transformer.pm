@@ -6,7 +6,7 @@ use Stenciller::Standard;
 
 role Stenciller::Transformer using Moose {
 
-    requires 'transformer';
+    requires 'transform';
 
     has stenciller => (
         is => 'ro',

@@ -10,6 +10,8 @@ use Stenciller::Stencil;
 
 class Stenciller using Moose with Stenciller::Utils {
 
+    use Carp 'croak';
+
     has filepath => (
         is => 'ro',
         isa => File,
@@ -35,6 +37,7 @@ class Stenciller using Moose with Stenciller::Utils {
             all_stencils => 'elements',
             get_stencil => 'get',
             count_stencils => 'count',
+            has_stencils => 'count',
         },
     );
     has header_lines => (
@@ -65,6 +68,10 @@ class Stenciller using Moose with Stenciller::Utils {
     method BUILD {
         $self->parse;
     }
+    around has_stencils($next: $self) {
+        my $count = $self->$next;
+        return !!$count || 0;
+    }
 
     method transform(Str $plugin_name         does doc('Plugin to read contents with.'),
                          @constructor_args    does doc('Constructor arguments for the plugin.')
@@ -74,10 +81,10 @@ class Stenciller using Moose with Stenciller::Utils {
         my $plugin_class = "Stenciller::Plugin::$plugin_name";
         $self->eval("use $plugin_class");
         die ("Cant 'use $plugin_class': $@") if $@;
-     #   if(!$plugin_class->does('Stenciller::Renderer')) {
-     #       croak("[$plugin_name] doesn't do the Stenciller::Renderer role. Quitting.");
-     #   }
-        return $plugin_class->new(stenciller => $self, @constructor_args)->render;
+        if(!$plugin_class->does('Stenciller::Transformer')) {
+            croak("[$plugin_name] doesn't do the Stenciller::Transformer role. Quitting.");
+        }
+        return $plugin_class->new(stenciller => $self, @constructor_args)->transform;
     }
 
     method parse {
@@ -138,8 +145,8 @@ class Stenciller using Moose with Stenciller::Utils {
         $self->handle_completed_stencil($stencil);
     }
 
-    method handle_completed_stencil(Stencil $stencil) {
-        return if !defined $stencil;
+    method handle_completed_stencil(Maybe[Stencil] $stencil) {
+        return if !Stencil->check($stencil);
         return if $stencil->skip;
         return if !$stencil->has_input  && $self->skip_if_input_empty;
         return if !$stencil->has_output && $self->skip_if_output_empty;

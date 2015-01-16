@@ -6,16 +6,16 @@ use Stenciller::Standard;
 
 class Stenciller::Plugin::ToUnparsedText using Moose with Stenciller::Transformer {
 
-    method transforme {
-        my @out = ();
+    method transform {
+        my @out = ($self->stenciller->all_header_lines);
 
         STENCIL:
         foreach my $stencil ($self->stenciller->all_stencils) {
-            push @out => $stencil->all_before_input;
-            push @out => $stencil->all_input;
-            push @out => $stencil->all_between;
-            push @out => $stencil->all_output;
-            push @out => $stencil->all_after_output;
+            push @out => $stencil->all_before_input,
+                         $stencil->all_input,
+                         $stencil->all_between,
+                         $stencil->all_output,
+                         $stencil->all_after_output;
         }
         return join "\n" => @out;
     }

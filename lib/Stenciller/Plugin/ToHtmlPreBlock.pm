@@ -8,17 +8,17 @@ class Stenciller::Plugin::ToHtmlPreBlock using Moose with Stenciller::Transforme
 
     use HTML::Entities 'encode_entities';
 
-    method transforme {
-        my @out = ();
+    method transform {
+        my @out = ($self->stenciller->all_header_lines);
 
         STENCIL:
         foreach my $stencil ($self->stenciller->all_stencils) {
 
-            push @out => $self->normal($stencil->all_before_input);
-            push @out => $self->pre($stencil->all_input);
-            push @out => $self->normal($stencil->all_between);
-            push @out => $self->pre($stencil->all_output);
-            push @out => $self->normal($stencil->all_after_output);
+            push @out => $self->normal($stencil->all_before_input),
+                         $self->pre($stencil->all_input),
+                         $self->normal($stencil->all_between),
+                         $self->pre($stencil->all_output),
+                         $self->normal($stencil->all_after_output);
 
         }
         return join '' => @out;
