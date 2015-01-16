@@ -108,7 +108,11 @@ class Stenciller using Moose with Stenciller::Utils {
             if(any { $environment eq $_ } (qw/header next_stencil/)) {
                 $self->add_header_line($line) and next LINE if $line !~ $stencil_start;
 
-                my $settings = $1 ? $self->eval_to_hashref($1, $self->filepath) : {};
+                my $possible_hash = $1;
+                my $settings = defined $possible_hash && $possible_hash =~ m{\{.*\}}
+                             ? $self->eval_to_hashref($possible_hash, $self->filepath)
+                             : {}
+                             ;
 
                 $stencil = Stenciller::Stencil->new(
                             name => exists $settings->{'name'} ? delete $settings->{'name'} : $self->filepath->basename . "-$line_count",
