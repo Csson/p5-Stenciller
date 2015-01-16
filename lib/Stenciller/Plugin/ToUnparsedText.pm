@@ -7,7 +7,7 @@ use Stenciller::Standard;
 class Stenciller::Plugin::ToUnparsedText using Moose with Stenciller::Transformer {
 
     method transform {
-        my @out = ($self->stenciller->all_header_lines);
+        my @out = $self->stenciller->all_header_lines;
 
         STENCIL:
         foreach my $stencil ($self->stenciller->all_stencils) {
