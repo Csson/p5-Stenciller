@@ -28,16 +28,16 @@ A text after output
 
 --input--
 
---input--
+--end input--
 --output--
 
---output--
+--end output--
 
 == stencil {} ==
 
 --input--
 
---input--
+--end input--
 --output--
 
---output--
+--end output--
