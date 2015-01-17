@@ -4,7 +4,7 @@ Stenciller - Transforms textfiles to different output
 
 # VERSION
 
-Version 0.1101, released 2015-01-16.
+Version 0.1200, released 2015-01-17.
 
 # SYNOPSIS
 
@@ -46,6 +46,8 @@ there is a header before the first stencil.
 ## stencils
 
 # METHODS
+
+## transform
 
 # PLUGINS
 

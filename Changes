@@ -8,12 +8,27 @@ Revision history for Stenciller
  [Documentation]
 
  [Enhancements]
+ - A simple test is done after parsing to ensure that the last thing parsed
+   is the end of a stencil. This is done to help hunt down syntax errors in
+   stencil files.
+ - Stenciller can now be created with both key-value pair and with a hashref.
+ - The transform() method now takes plugin name, constructor args for the plugin,
+   and arguments for the transformation.
+ - ToHtmlPreBlock: Reduce number of line-breaks in output
+ - ToUnparsedText: Ensure there are always (at least) one empty line between the 
+                   output of each block in the stencil file.
+ - ToHtmlPreBlock/ToUnparsedText: The pod author can choose to skip header_lines
+                                  or specific stencils by giving arguments to the
+                                  plugin from the pod command.
 
  [Meta]
 
  [New Features]
 
  [Revision]
+
+ [Requirements]
+ - Fixed missing prereq, Types::Path::Tiny.
 
 0.1100 2015-01-16T20:42:04Z CET
  [API Changes]
