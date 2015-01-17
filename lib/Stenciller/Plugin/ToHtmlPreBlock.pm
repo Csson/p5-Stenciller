@@ -8,12 +8,18 @@ class Stenciller::Plugin::ToHtmlPreBlock using Moose with Stenciller::Transforme
 
     use HTML::Entities 'encode_entities';
 
-    method transform {
+    method transform(HashRef $transform_args does doc('Settings for the current transformation') = {}, ...
+                 --> Str     but assumed     does doc('The transformed content.')
+    ) {
 
-        my @out = ($self->stenciller->all_header_lines);
+        my @out = ('');
+        push (@out => $self->stenciller->all_header_lines, '') if !$transform_args->{'skip_header_lines'};
 
         STENCIL:
-        foreach my $stencil ($self->stenciller->all_stencils) {
+        for my $i (0 .. $self->stenciller->count_stencils - 1) {
+            next STENCIL if exists $transform_args->{'stencils'} && first_index { $_ == $i } @{ $transform_args->{'stencils'} };
+
+            my $stencil = $self->stenciller->get_stencil($i);
 
             push @out => $self->normal($stencil->all_before_input),
                          $self->pre($stencil->all_input),
@@ -27,7 +33,7 @@ class Stenciller::Plugin::ToHtmlPreBlock using Moose with Stenciller::Transforme
 
     method normal(@lines) {
         return () if !scalar @lines;
-        return join '' => ('<p>', join ("\n" => @lines), '</p>');
+        return join '' => ('<p>', join ('' => @lines), '</p>');
     }
 
     method pre(@lines) {
