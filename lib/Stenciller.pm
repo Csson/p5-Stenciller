@@ -65,6 +65,15 @@ class Stenciller using Moose with Stenciller::Utils {
         documentation => 'If a stencil has no output content, skip entire stencil.',
     );
 
+    around BUILDARGS($next: $class, @args) {
+        if(scalar @args == 1 && ref $args[0] eq 'HASH') {
+            $class->$next(%{ $args[0] });
+        }
+        else {
+            $class->$next(@args);
+        }
+    }
+
     method BUILD {
         $self->parse;
     }
@@ -73,9 +82,10 @@ class Stenciller using Moose with Stenciller::Utils {
         return !!$count || 0;
     }
 
-    method transform(Str $plugin_name         does doc('Plugin to read contents with.'),
-                         @constructor_args    does doc('Constructor arguments for the plugin.')
-                 --> Str                      does doc('Returns the transformed contents.')
+    method transform(Str :$plugin_name           does doc('Plugin to read contents with.'),
+                     HashRef :$constructor_args? does doc('Constructor arguments for the plugin.')     = {},
+                     HashRef :$transform_args?   does doc('Settings for the specific transformation.') = {}, ...
+                 --> Str     but assumed         does doc('Returns the transformed content.')
     ) {
 
         my $plugin_class = "Stenciller::Plugin::$plugin_name";
@@ -84,7 +94,7 @@ class Stenciller using Moose with Stenciller::Utils {
         if(!$plugin_class->does('Stenciller::Transformer')) {
             croak("[$plugin_name] doesn't do the Stenciller::Transformer role. Quitting.");
         }
-        return $plugin_class->new(stenciller => $self, @constructor_args)->transform;
+        return $plugin_class->new(stenciller => $self, %{ $constructor_args })->transform($transform_args);
     }
 
     method parse {
@@ -108,7 +118,11 @@ class Stenciller using Moose with Stenciller::Utils {
             if(any { $environment eq $_ } (qw/header next_stencil/)) {
                 $self->add_header_line($line) and next LINE if $line !~ $stencil_start;
 
-                my $settings = $1 ? $self->eval_to_hashref($1, $self->filepath) : {};
+                my $possible_hash = $1;
+                my $settings = defined $possible_hash && $possible_hash =~ m{\{.*\}}
+                             ? $self->eval_to_hashref($possible_hash, $self->filepath)
+                             : {}
+                             ;
 
                 $stencil = Stenciller::Stencil->new(
                             name => exists $settings->{'name'} ? delete $settings->{'name'} : $self->filepath->basename . "-$line_count",
@@ -142,6 +156,9 @@ class Stenciller using Moose with Stenciller::Utils {
                 redo LINE;
             }
         }
+        if($environment ne 'after_output') {
+            croak (sprintf 'File <%s> appears malformed. Ended on <%s>', $self->filepath, $environment);
+        }
         $self->handle_completed_stencil($stencil);
     }
 
@@ -161,7 +178,6 @@ class Stenciller using Moose with Stenciller::Utils {
             $self->add_stencil($clone);
         }
     }
-
 }
 
 __END__
@@ -201,7 +217,7 @@ there is a header before the first stencil.
 
 =head1 METHODS
 
-:splint method transforme
+:splint method transform
 
 =head1 PLUGINS
 
@@ -214,5 +230,3 @@ The actual transforming is done by plugins. There are two plugins bundled in thi
 Custom plugins should be in the L<Stenciller::Plugin> namespace and consume the L<Stenciller::Transformer> role.
 
 =cut
-
-

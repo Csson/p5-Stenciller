@@ -18,7 +18,7 @@ package Stenciller::Standard {
         my %opts = @_;
 
         push @{ $opts{'imports'} ||= [] } => (
-            'List::AllUtils'    => [qw/any none sum uniq/],
+            'List::AllUtils'    => [qw/any none sum uniq first_index/],
             'feature'           => [qw/:5.14/],
             'Types::Stenciller' => [{ replace => 1 }, '-types'],
             'Path::Tiny'        => ['path'],
