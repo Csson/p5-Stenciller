@@ -190,7 +190,7 @@ __END__
 
     use Stenciller;
     my $stenciller = Stenciller->new(filepath => 't/corpus/test-1.stencil');
-    my $content = $stenciller->transforme('ToUnparsedText');
+    my $content = $stenciller->transform('ToUnparsedText');
 
 =head1 DESCRIPTION
 
