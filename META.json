@@ -85,6 +85,10 @@
          "file" : "lib/Stenciller/Utils.pm",
          "version" : "0.1203"
       },
+      "Stenciller::Wrap" : {
+         "file" : "lib/Stenciller/Wrap.pm",
+         "version" : "0.1203"
+      },
       "Types::Stenciller" : {
          "file" : "lib/Types/Stenciller.pm",
          "version" : "0.1203"
