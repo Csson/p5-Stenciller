@@ -37,7 +37,7 @@ Revision history for Stenciller
    plugin, and arguments for the transformation.
  - ToHtmlPreBlock: Reduce number of line-breaks in output
  - ToUnparsedText: Ensure there are always (at least) one empty line
-   between the	 output of each block in the stencil file.
+   between the output of each block in the stencil file.
  - ToHtmlPreBlock/ToUnparsedText: The pod author can choose to skip
    header_lines or specific stencils by giving arguments to the plugin from
    the pod command.
