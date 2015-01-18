@@ -1,5 +1,5 @@
 {
-   "abstract" : "Transforms textfiles to different output",
+   "abstract" : "Transforms a flat file format to different output",
    "author" : [
       "Erik Carlsson <info@code301.com>"
    ],
@@ -59,35 +59,35 @@
    "provides" : {
       "Stenciller" : {
          "file" : "lib/Stenciller.pm",
-         "version" : "0.1200"
+         "version" : "0.1201"
       },
       "Stenciller::Plugin::ToHtmlPreBlock" : {
          "file" : "lib/Stenciller/Plugin/ToHtmlPreBlock.pm",
-         "version" : "0.1200"
+         "version" : "0.1201"
       },
       "Stenciller::Plugin::ToUnparsedText" : {
          "file" : "lib/Stenciller/Plugin/ToUnparsedText.pm",
-         "version" : "0.1200"
+         "version" : "0.1201"
       },
       "Stenciller::Standard" : {
          "file" : "lib/Stenciller/Standard.pm",
-         "version" : "0.1200"
+         "version" : "0.1201"
       },
       "Stenciller::Stencil" : {
          "file" : "lib/Stenciller/Stencil.pm",
-         "version" : "0.1200"
+         "version" : "0.1201"
       },
       "Stenciller::Transformer" : {
          "file" : "lib/Stenciller/Transformer.pm",
-         "version" : "0.1200"
+         "version" : "0.1201"
       },
       "Stenciller::Utils" : {
          "file" : "lib/Stenciller/Utils.pm",
-         "version" : "0.1200"
+         "version" : "0.1201"
       },
       "Types::Stenciller" : {
          "file" : "lib/Types/Stenciller.pm",
-         "version" : "0.1200"
+         "version" : "0.1201"
       }
    },
    "release_status" : "stable",
@@ -102,6 +102,6 @@
          "web" : "https://github.com/Csson/p5-Stenciller"
       }
    },
-   "version" : "0.1200"
+   "version" : "0.1201"
 }
 

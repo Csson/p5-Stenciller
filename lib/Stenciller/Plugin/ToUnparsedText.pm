@@ -1,7 +1,7 @@
 use Stenciller::Standard;
 
 # VERSION
-# ABSTRACT: A plugin that doesn't transforme the text the text
+# ABSTRACT: A plugin that doesn't transform the text
 # PODCLASSNAME:
 
 class Stenciller::Plugin::ToUnparsedText using Moose with Stenciller::Transformer {
@@ -41,7 +41,7 @@ class Stenciller::Plugin::ToUnparsedText using Moose with Stenciller::Transforme
 
     use Stenciller;
     my $stenciller = Stenciller->new(filepath => 't/corpus/test-1.stencil');
-    my $content = $stenciller->transforme('ToUnparsedText');
+    my $content = $stenciller->transform('ToUnparsedText');
 
 =head1 DESCRIPTION
 
@@ -51,17 +51,19 @@ This plugin to L<Stenciller> basically returns all text content of the stencils.
 
 :splint method transform
 
-The currently available keys in the C<$transform_args> is:
+The currently available keys in the C<$transform_args> hash ref is:
 
-B<C<skip_header_lines => 1>>
+B<C<skip_header_lines =E<gt> 1>>
 
 C<skip_header_lines> takes a boolean indicating if the L<Stenciller's|Stenciller> header_lines should be skipped. Default is C<0>.
 
-B<C<stencils => []>>
+B<C<stencils =E<gt> [ ]>>
 
 C<stencils> takes an array reference of which stencils in the currently parsed file that should be included in the output. The index is zero based.
 
 If this plugin is used via L<Pod::Elemental::Transformer::Stenciller> it could be used like this in pod:
+
+    =pod
 
     # includes header_lines and all stencils
     :stenciller ToUnparsedText atestfile-1.stencil

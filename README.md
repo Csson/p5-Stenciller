@@ -1,16 +1,16 @@
 # NAME
 
-Stenciller - Transforms textfiles to different output
+Stenciller - Transforms a flat file format to different output
 
 # VERSION
 
-Version 0.1200, released 2015-01-17.
+Version 0.1201, released 2015-01-18.
 
 # SYNOPSIS
 
     use Stenciller;
     my $stenciller = Stenciller->new(filepath => 't/corpus/test-1.stencil');
-    my $content = $stenciller->transforme('ToUnparsedText');
+    my $content = $stenciller->transform('ToUnparsedText');
 
 # DESCRIPTION
 

@@ -56,7 +56,7 @@ __END__
 
     use Stenciller;
     my $stenciller = Stenciller->new(filepath => 't/corpus/test-1.stencil');
-    my $content = $stenciller->transforme('ToHtmlPreBlock');
+    my $content = $stenciller->transform('ToHtmlPreBlock');
 
 =head1 DESCRIPTION
 

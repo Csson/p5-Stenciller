@@ -4,9 +4,9 @@ use warnings;
 
 use Stenciller::Standard;
 use Stenciller::Stencil;
-# PODCLASSNAME:
 # VERSION
-# ABSTRACT: Transforms textfiles to different output
+# PODCLASSNAME:
+# ABSTRACT: Transforms a flat file format to different output
 
 class Stenciller using Moose with Stenciller::Utils {
 
@@ -190,7 +190,7 @@ __END__
 
     use Stenciller;
     my $stenciller = Stenciller->new(filepath => 't/corpus/test-1.stencil');
-    my $content = $stenciller->transforme('ToUnparsedText');
+    my $content = $stenciller->transform('ToUnparsedText');
 
 =head1 DESCRIPTION
 
