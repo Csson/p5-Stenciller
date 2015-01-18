@@ -4,7 +4,6 @@ Revision history for Stenciller
  [API Changes]
 
  [Bug Fixes]
- - The previous release lacked version numbers.
 
  [Documentation]
 
@@ -17,6 +16,10 @@ Revision history for Stenciller
  [Requirements]
 
  [Revision]
+
+0.1202 2015-01-18T02:08:59Z CET
+ [Bug Fixes]
+ - The previous release lacked version numbers.
 
 0.1201 2015-01-18T01:16:00Z CET
  [Documentation]
