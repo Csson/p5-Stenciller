@@ -4,7 +4,7 @@ use warnings;
 
 package Stenciller::Standard {
 
-    # VERSION
+    # VERSION:
     # ABSTRACT: Import to all
 
     use base 'Moops';

@@ -4,21 +4,27 @@ Revision history for Stenciller
  [API Changes]
 
  [Bug Fixes]
+ - The previous release lacked version numbers.
 
  [Documentation]
- - Fixed some faulty pod that caused ugliness.
- - Fixed a couple of typos.
 
  [Enhancements]
 
  [Meta]
- - Add travis config.
 
  [New Features]
 
  [Requirements]
 
  [Revision]
+
+0.1201 2015-01-18T01:16:00Z CET
+ [Documentation]
+ - Fixed some faulty pod that caused ugliness.
+ - Fixed a couple of typos.
+
+ [Meta]
+ - Add travis config.
 
 0.1200 2015-01-17T19:08:26Z CET
  [Enhancements]
@@ -31,7 +37,7 @@ Revision history for Stenciller
    plugin, and arguments for the transformation.
  - ToHtmlPreBlock: Reduce number of line-breaks in output
  - ToUnparsedText: Ensure there are always (at least) one empty line
-   between the	output of each block in the stencil file.
+   between the output of each block in the stencil file.
  - ToHtmlPreBlock/ToUnparsedText: The pod author can choose to skip
    header_lines or specific stencils by giving arguments to the plugin from
    the pod command.

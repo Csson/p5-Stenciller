@@ -1,6 +1,6 @@
 use Stenciller::Standard;
 
-# VERSION
+# VERSION:
 # ABSTRACT: A plugin that transforms to html
 # PODCLASSNAME:
 

@@ -1,6 +1,6 @@
 use Stenciller::Standard;
 
-# VERSION
+# VERSION:
 # ABSTRACT: A role for transformer plugins to consume
 # PODCLASSNAME
 

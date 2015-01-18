@@ -1,6 +1,6 @@
 use Stenciller::Standard;
 
-# VERSION
+# VERSION:
 # ABSTRACT: One part of a file
 # PODCLASSNAME:
 
