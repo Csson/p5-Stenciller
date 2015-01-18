@@ -13,7 +13,7 @@ extends Types::Standard, Types::Path::Tiny
 
 {
 
-    class_type Stenciller => { class => 'Stenciller' };
+    class_type Stenciller => { class => 'Stenciller::Wrap' };
     class_type Stencil    => { class => 'Stenciller::Stencil' };
 
 }
