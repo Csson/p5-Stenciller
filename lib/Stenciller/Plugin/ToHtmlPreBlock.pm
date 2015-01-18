@@ -4,44 +4,48 @@ use Stenciller::Standard;
 # ABSTRACT: A plugin that transforms to html
 # PODCLASSNAME:
 
-class Stenciller::Plugin::ToHtmlPreBlock using Moose with Stenciller::Transformer {
+package Stenciller::Plugin::ToHtmlPreBlock;
+use Moose;
+with 'Stenciller::Transformer';
 
-    use HTML::Entities 'encode_entities';
+use HTML::Entities 'encode_entities';
 
-    method transform(HashRef $transform_args does doc('Settings for the current transformation') = {}, ...
-                 --> Str     but assumed     does doc('The transformed content.')
-    ) {
+sub transform {
+    my $self = shift;
+    my $transform_args = shift;
 
-        my @out = ('');
-        push (@out => $self->stenciller->all_header_lines, '') if !$transform_args->{'skip_header_lines'};
+    my @out = ('');
+    push (@out => $self->stenciller->all_header_lines, '') if !$transform_args->{'skip_header_lines'};
 
-        STENCIL:
-        for my $i (0 .. $self->stenciller->count_stencils - 1) {
-            next STENCIL if exists $transform_args->{'stencils'} && first_index { $_ == $i } @{ $transform_args->{'stencils'} };
+    STENCIL:
+    for my $i (0 .. $self->stenciller->count_stencils - 1) {
+        next STENCIL if exists $transform_args->{'stencils'} && first_index { $_ == $i } @{ $transform_args->{'stencils'} };
 
-            my $stencil = $self->stenciller->get_stencil($i);
+        my $stencil = $self->stenciller->get_stencil($i);
 
-            push @out => $self->normal($stencil->all_before_input),
-                         $self->pre($stencil->all_input),
-                         $self->normal($stencil->all_between),
-                         $self->pre($stencil->all_output),
-                         $self->normal($stencil->all_after_output);
+        push @out => $self->normal($stencil->all_before_input),
+                     $self->pre($stencil->all_input),
+                     $self->normal($stencil->all_between),
+                     $self->pre($stencil->all_output),
+                     $self->normal($stencil->all_after_output);
 
-        }
-        return join "\n" => @out;
     }
+    return join "\n" => @out;
+}
 
-    method normal(@lines) {
-        return () if !scalar @lines;
-        return join '' => ('<p>', join ('' => @lines), '</p>');
-    }
+sub normal {
+    my $self = shift;
+    my @lines = @_;
 
-    method pre(@lines) {
-        return () if !scalar @lines;
+    return () if !scalar @lines;
+    return join '' => ('<p>', join ('' => @lines), '</p>');
+}
+sub pre {
+    my $self = shift;
+    my @lines = @_;
 
-        my @encoded_lines = map {  encode_entities($_) } @lines;
-        return join '' => ('<pre>', join ("\n" =>  @encoded_lines), '</pre>');
-    }
+    my @encoded_lines = map {  encode_entities($_) } @lines;
+    return join '' => ('<pre>', join ("\n" =>  @encoded_lines), '</pre>');
 }
 
 1;

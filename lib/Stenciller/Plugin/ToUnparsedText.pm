@@ -2,36 +2,39 @@ use Stenciller::Standard;
 
 # VERSION:
 # ABSTRACT: A plugin that doesn't transform the text
-# PODCLASSNAME:
 
-class Stenciller::Plugin::ToUnparsedText using Moose with Stenciller::Transformer {
+package Stenciller::Plugin::ToUnparsedText;
+use Moose;
+with 'Stenciller::Transformer';
 
-    method transform(HashRef $transform_args does doc('Settings for the current transformation') = {}, ...
-                 --> Str     but assumed     does doc('The transformed content.')
-    ) {
+sub transform {
+    my $self = shift;
+    my $transform_args = shift;
 
-        my @out = ('');
-        push (@out => $self->stenciller->all_header_lines, '') if !$transform_args->{'skip_header_lines'};
+    my @out = ('');
+    push (@out => $self->stenciller->all_header_lines, '') if !$transform_args->{'skip_header_lines'};
 
-        STENCIL:
-        for my $i (0 .. $self->stenciller->count_stencils - 1) {
-            next STENCIL if exists $transform_args->{'stencils'} && first_index { $_ == $i } @{ $transform_args->{'stencils'} };
+    STENCIL:
+    for my $i (0 .. $self->stenciller->count_stencils - 1) {
+        next STENCIL if exists $transform_args->{'stencils'} && first_index { $_ == $i } @{ $transform_args->{'stencils'} };
 
-            my $stencil = $self->stenciller->get_stencil($i);
-            push @out => '',
-                         $stencil->all_before_input, '',
-                         $stencil->all_input, '',
-                         $stencil->all_between, '',
-                         $stencil->all_output, '',
-                         $stencil->all_after_output, '';
-        }
-        my $content = join "\n" => '', @out, '';
-        $content =~ s{[\r?\n]{2,}}{\n\n}g;
-        return $content;
+        my $stencil = $self->stenciller->get_stencil($i);
+        push @out => '',
+                     $stencil->all_before_input, '',
+                     $stencil->all_input, '',
+                     $stencil->all_between, '',
+                     $stencil->all_output, '',
+                     $stencil->all_after_output, '';
     }
+    my $content = join "\n" => '', @out, '';
+    $content =~ s{[\r?\n]{2,}}{\n\n}g;
+    return $content;
 }
 
+
 1;
+
+__END__
 
 =pod
 
