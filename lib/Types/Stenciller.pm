@@ -3,7 +3,7 @@ use warnings;
 
 use Moops;
 
-# VERSION
+# VERSION:
 # PODCLASSNAME:
 # ABSTRACT: Types for Stenciller
 

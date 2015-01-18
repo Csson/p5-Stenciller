@@ -4,7 +4,7 @@ use warnings;
 
 use Stenciller::Standard;
 use Stenciller::Stencil;
-# VERSION
+# VERSION:
 # PODCLASSNAME:
 # ABSTRACT: Transforms a flat file format to different output
 

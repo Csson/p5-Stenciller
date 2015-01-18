@@ -1,5 +1,6 @@
 use Stenciller::Standard;
 
+# VERSION:
 # PODCLASSNAME
 
 role Stenciller::Utils using Moose {
