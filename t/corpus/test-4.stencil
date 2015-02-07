@@ -1,0 +1,21 @@
+Header
+
+lines
+
+== stencil {} ==
+
+If you write this:
+
+--input--
+
+    <%= badge '3' %>
+
+--end input--
+
+It becomes this:
+
+--output--
+
+    <span class="badge">3</span>
+
+--end output--

@@ -1,7 +1,8 @@
 Header
+
 lines
 
-== stencil ==
+== stencil {} ==
 
 If you write this:
 
@@ -19,9 +20,9 @@ It becomes this:
 
 --end output--
 
-== stencil ==
+== stencil {} ==
 
-If you write this [2]:
+If you write this [only this]:
 
 --input--
 
