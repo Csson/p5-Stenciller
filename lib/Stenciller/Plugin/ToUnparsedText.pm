@@ -1,10 +1,13 @@
-use Stenciller::Standard;
+use 5.14.0;
+use strict;
+use warnings;
 
+package Stenciller::Plugin::ToUnparsedText;
 # VERSION:
 # ABSTRACT: A plugin that doesn't transform the text
 
-package Stenciller::Plugin::ToUnparsedText;
 use Moose;
+use List::AllUtils qw/first_index/;
 with 'Stenciller::Transformer';
 
 sub transform {
@@ -16,7 +19,7 @@ sub transform {
 
     STENCIL:
     for my $i (0 .. $self->stenciller->count_stencils - 1) {
-        next STENCIL if exists $transform_args->{'stencils'} && first_index { $_ == $i } @{ $transform_args->{'stencils'} };
+        next STENCIL if exists $transform_args->{'stencils'} && -1 == first_index { $_ == $i } @{ $transform_args->{'stencils'} };
 
         my $stencil = $self->stenciller->get_stencil($i);
         push @out => '',
@@ -30,7 +33,6 @@ sub transform {
     $content =~ s{[\r?\n]{2,}}{\n\n}g;
     return $content;
 }
-
 
 1;
 
