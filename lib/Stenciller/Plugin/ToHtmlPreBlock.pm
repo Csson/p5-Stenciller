@@ -1,11 +1,13 @@
-use Stenciller::Standard;
-
-# VERSION:
-# ABSTRACT: A plugin that transforms to html
-# PODCLASSNAME:
+use 5.14.0;
+use strict;
+use warnings;
 
 package Stenciller::Plugin::ToHtmlPreBlock;
+# VERSION:
+# ABSTRACT: A plugin that transforms to html
+
 use Moose;
+use List::AllUtils qw/first_index/;
 with 'Stenciller::Transformer';
 
 use HTML::Entities 'encode_entities';
@@ -19,7 +21,7 @@ sub transform {
 
     STENCIL:
     for my $i (0 .. $self->stenciller->count_stencils - 1) {
-        next STENCIL if exists $transform_args->{'stencils'} && first_index { $_ == $i } @{ $transform_args->{'stencils'} };
+        next STENCIL if exists $transform_args->{'stencils'} && -1 == first_index { $_ == $i } @{ $transform_args->{'stencils'} };
 
         my $stencil = $self->stenciller->get_stencil($i);
 

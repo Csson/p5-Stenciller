@@ -7,7 +7,7 @@ use Stenciller;
 
 ok 1;
 
-my $stenciller = Stenciller->new(filepath => 't/corpus/test-3.stencil');
+my $stenciller = Stenciller->new(filepath => 't/corpus/test-4.stencil');
 
 is $stenciller->count_stencils, 1, 'Found stencils';
 
