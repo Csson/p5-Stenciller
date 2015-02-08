@@ -179,4 +179,8 @@ class Stenciller::Wrap using Moose with Stenciller::Utils {
             $self->add_stencil($clone);
         }
     }
+
+    method max_stencil_index {
+        return $self->count_stencils - 1;
+    }
 }

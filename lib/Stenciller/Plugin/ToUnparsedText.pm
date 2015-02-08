@@ -14,14 +14,15 @@ sub transform {
     my $self = shift;
     my $transform_args = shift;
 
-    my @out = ('');
-    push (@out => $self->stenciller->all_header_lines, '') if !$transform_args->{'skip_header_lines'};
+    my @out = $self->init_out($self->stenciller, $transform_args);
 
     STENCIL:
-    for my $i (0 .. $self->stenciller->count_stencils - 1) {
-        next STENCIL if exists $transform_args->{'stencils'} && -1 == first_index { $_ == $i } @{ $transform_args->{'stencils'} };
+    for my $i (0 .. $self->stenciller->max_stencil_index) {
+        next STENCIL if $self->should_skip_stencil_by_index($i, $transform_args);
 
         my $stencil = $self->stenciller->get_stencil($i);
+        next STENCIL if $self->should_skip_stencil($stencil, $transform_args);
+
         push @out => '',
                      $stencil->all_before_input, '',
                      $stencil->all_input, '',
@@ -52,20 +53,6 @@ __END__
 
 This plugin to L<Stenciller> basically returns all text content of the stencils.
 
-=head1 METHODS
-
-:splint method transform
-
-The currently available keys in the C<$transform_args> hash ref is:
-
-B<C<skip_header_lines =E<gt> 1>>
-
-C<skip_header_lines> takes a boolean indicating if the L<Stenciller's|Stenciller> header_lines should be skipped. Default is C<0>.
-
-B<C<stencils =E<gt> [ ]>>
-
-C<stencils> takes an array reference of which stencils in the currently parsed file that should be included in the output. The index is zero based.
-
 If this plugin is used via L<Pod::Elemental::Transformer::Stenciller> it could be used like this in pod:
 
     =pod
@@ -81,6 +68,12 @@ If this plugin is used via L<Pod::Elemental::Transformer::Stenciller> it could b
 
     # includes only the header_lines
     :stenciller ToUnparsedText atestfile-1.stencil { stencils => [] }
+
+=head1 METHODS
+
+=head2 transform
+
+See L<transform|Stenciller::Transformer/"transform"> in L<Stenciller::Transformer>.
 
 
 =cut
