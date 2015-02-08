@@ -6,6 +6,7 @@ Revision history for Stenciller
  [Bug Fixes]
 
  [Documentation]
+ - Previous version failed to build a correct README.md
 
  [Enhancements]
 
