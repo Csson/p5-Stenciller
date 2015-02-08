@@ -6,7 +6,6 @@ Revision history for Stenciller
  [Bug Fixes]
 
  [Documentation]
- - Previous version failed to build a correct README.md
 
  [Enhancements]
 
@@ -17,6 +16,10 @@ Revision history for Stenciller
  [Requirements]
 
  [Revision]
+
+0.1208 2015-02-08T20:07:41Z CET
+ [Documentation]
+ - Previous version failed to build a correct README.md
 
 0.1207 2015-02-08T20:05:03Z CET
  [Documentation]
