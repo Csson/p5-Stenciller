@@ -6,14 +6,20 @@ Revision history for Stenciller
  [Bug Fixes]
 
  [Documentation]
+ - Moved (and improved) documentation for transform from ::Plugin::ToUnparsedText to ::Transformer.
 
  [Enhancements]
+ - ::Plugin::ToHtmlPreBlock: Trim four leading spaces from <pre> content (input and output sections in stencils).
+ - Moved duplicated code from ::Plugin::* to ::Transformer.
+ - Added require_in_extra key to $transform_args in ::Transformer to allow finer filtering.
 
  [Meta]
 
  [New Features]
 
  [Requirements]
+ - Added Module::Pluggable (was already necessary)
+ - Added Moose to quiet kwalitee (we already require Moops)
 
  [Revision]
 
