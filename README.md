@@ -1,10 +1,4 @@
-# NAME
-
-Stenciller - Transforms a flat file format to different output
-
-# VERSION
-
-Version 0.1207, released 2015-02-08.
+:splint classname Stenciller::Wrap
 
 # SYNOPSIS
 
@@ -33,46 +27,14 @@ there is a header before the first stencil.
 
 # ATTRIBUTES
 
-## filepath
-
-## is\_utf8
-
-## skip\_if\_input\_empty
-
-## skip\_if\_output\_empty
-
-## header\_lines
-
-## stencils
+:splint attributes
 
 # METHODS
 
-## transform
+:splint method transform
 
 # PLUGINS
 
 The actual transforming is done by plugins. There are two plugins bundled in this distribution:
 
-- [Stenciller::Plugin::ToUnparsedText](https://metacpan.org/pod/Stenciller::Plugin::ToUnparsedText)
-- [Stenciller::Plugin::ToHtmlPreBlock](https://metacpan.org/pod/Stenciller::Plugin::ToHtmlPreBlock)
-
 Custom plugins should be in the [Stenciller::Plugin](https://metacpan.org/pod/Stenciller::Plugin) namespace and consume the [Stenciller::Transformer](https://metacpan.org/pod/Stenciller::Transformer) role.
-
-# SOURCE
-
-[https://github.com/Csson/p5-Stenciller](https://github.com/Csson/p5-Stenciller)
-
-# HOMEPAGE
-
-[https://metacpan.org/release/Stenciller](https://metacpan.org/release/Stenciller)
-
-# AUTHOR
-
-Erik Carlsson <info@code301.com>
-
-# COPYRIGHT AND LICENSE
-
-This software is copyright (c) 2015 by Erik Carlsson <info@code301.com>.
-
-This is free software; you can redistribute it and/or modify it under
-the same terms as the Perl 5 programming language system itself.
