@@ -37,3 +37,39 @@ It becomes this:
     <span class="badge">3</span>
 
 --end output--
+
+== stencil { is_example => 0 } ==
+
+If you write this here:
+
+--input--
+
+    <%= badge '3' %>
+
+--end input--
+
+It becomes this:
+
+--output--
+
+    <span class="badge">3</span>
+
+--end output--
+
+== stencil { is_example => 1 } ==
+
+And if you write this:
+
+--input--
+
+    <%= badge '3' %>
+
+--end input--
+
+It becomes this:
+
+--output--
+
+    <span class="badge">3</span>
+
+--end output--

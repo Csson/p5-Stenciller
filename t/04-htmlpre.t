@@ -23,9 +23,9 @@ lines
 
 
 <p>If you write this:</p>
-<pre>    &lt;%= badge &#39;3&#39; %&gt;
+<pre>&lt;%= badge &#39;3&#39; %&gt;
 </pre>
 <p>It becomes this:</p>
-<pre>    &lt;span class=&quot;badge&quot;&gt;3&lt;/span&gt;
+<pre>&lt;span class=&quot;badge&quot;&gt;3&lt;/span&gt;
 </pre>};
 };
