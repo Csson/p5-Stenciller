@@ -12,12 +12,12 @@ my $stenciller = Stenciller->new(filepath => 't/corpus/test-5.stencil');
 is $stenciller->count_stencils, 4, 'Found stencils';
 
 my $transform_args = {
-	stencils => [1, 2, 3],
-	require_in_extra => {
-		key => 'is_example',
-		value => 1,
-		default => 1,
-	}
+    stencils => [1, 2, 3],
+    require_in_extra => {
+        key => 'is_example',
+        value => 1,
+        default => 1,
+    }
 };
 
 eq_or_diff $stenciller->transform(plugin_name => 'ToHtmlPreBlock', transform_args => $transform_args), result(), 'Parsed to html';
