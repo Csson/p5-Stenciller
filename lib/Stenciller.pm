@@ -30,7 +30,7 @@ __END__
 
     use Stenciller;
     my $stenciller = Stenciller->new(filepath => 't/corpus/test-1.stencil');
-    my $content = $stenciller->transform('ToUnparsedText');
+    my $content = $stenciller->transform(plugin_name => 'ToUnparsedText');
 
 =head1 DESCRIPTION
 
