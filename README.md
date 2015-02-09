@@ -4,7 +4,7 @@ Stenciller - Transforms a flat file format to different output
 
 # VERSION
 
-Version 0.1209, released 2015-02-09.
+Version 0.1210, released 2015-02-09.
 
 # SYNOPSIS
 

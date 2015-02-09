@@ -17,3 +17,6 @@ plugins:
 
 plugins:
   - config: Author::CSSON
+
+  - extend_plugin: Splint
+    type_libraries: Types::Stenciller=Stencil,Stenciller

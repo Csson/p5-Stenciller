@@ -6,6 +6,7 @@ Revision history for Stenciller
  [Bug Fixes]
 
  [Documentation]
+ - Types from Types::Stenciller are now correctly linked.
 
  [Enhancements]
 
