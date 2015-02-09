@@ -6,7 +6,6 @@ Revision history for Stenciller
  [Bug Fixes]
 
  [Documentation]
- - Types from Types::Stenciller are now correctly linked.
 
  [Enhancements]
 
@@ -19,6 +18,10 @@ Revision history for Stenciller
  [Revision]
 
  [Testing]
+
+0.1210 2015-02-09T20:16:55Z CET
+ [Documentation]
+ - Types from Types::Stenciller are now correctly linked.
 
 0.1209 2015-02-09T20:02:41Z CET
  [Bug Fixes]
