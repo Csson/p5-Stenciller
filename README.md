@@ -4,13 +4,13 @@ Stenciller - Transforms a flat file format to different output
 
 # VERSION
 
-Version 0.1208, released 2015-02-08.
+Version 0.1209, released 2015-02-09.
 
 # SYNOPSIS
 
     use Stenciller;
     my $stenciller = Stenciller->new(filepath => 't/corpus/test-1.stencil');
-    my $content = $stenciller->transform('ToUnparsedText');
+    my $content = $stenciller->transform(plugin_name => 'ToUnparsedText');
 
 # DESCRIPTION
 

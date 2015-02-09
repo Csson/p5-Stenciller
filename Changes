@@ -4,12 +4,15 @@ Revision history for Stenciller
  [API Changes]
 
  [Bug Fixes]
+ - In Stenciller->transform, plugin_name was optional in the signature (and documentation), when in reality it is required.
 
  [Documentation]
+ - Fixed faulty synopsis.
 
  [Enhancements]
 
  [Meta]
+ - Now generates dist.ini and weaver.ini from iller.yaml.
 
  [New Features]
 
