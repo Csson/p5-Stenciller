@@ -10,7 +10,20 @@ name: Stenciller
  - 'Pod::Weaver::Section::Homepage::DefaultCPAN'
  - 'Pod::Elemental::Transformer::List'
  - 'Pod::Elemental::Transformer::Splint'
-
+ - 'HTML::Entities'
+ - 'List::AllUtils'
+ - 'Module::Pluggable'
+ - 'Moose'
+ - 'MooseX::AttributeDocumented'
+ - 'Kavorka::TraitFor::Parameter::doc'
+ - 'Path::Tiny'
+ - 'PerlX::Maybe'
+ - 'Carp'
+ - 'Types::Path::Tiny'
+ - 'Pod::Weaver::Section::Source::DefaultGitHub'
+ - 'Pod::Weaver::Section::Homepage::DefaultCPAN'
+ - 'Pod::Elemental::Transformer::List'
+ - 'Pod::Elemental::Transformer::Splint'
 
 plugins:
   - config: Author::CSSON
