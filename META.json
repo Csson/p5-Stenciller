@@ -15,12 +15,12 @@
    "name" : "Stenciller",
    "no_index" : {
       "directory" : [
-         "eg",
-         "examples",
+         "t",
+         "xt",
          "inc",
          "share",
-         "t",
-         "xt"
+         "eg",
+         "examples"
       ]
    },
    "prereqs" : {
