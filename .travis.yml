@@ -16,6 +16,7 @@ before_install:
    - cpanm Pod::Elemental::Transformer::Splint
    - cpanm Pod::Weaver::Section::Homepage::DefaultCPAN
    - cpanm Pod::Weaver::Section::Source::DefaultGithub
+   - cpanm Syntax::Feature::Qs -v
 install:
    - cpanm --quiet --notest --skip-satisfied Dist::Zilla
    - "dzil authordeps          --missing | grep -vP '[^\\w:]' | xargs -n 5 -P 10 cpanm --quiet --notest"
