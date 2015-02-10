@@ -16,7 +16,6 @@ on test => sub {
     requires 'Test::More', '0.96';
     requires 'Test::Deep';
     requires 'Test::Differences';
-    requires 'Test::Warnings',
 };
 
 on develop => sub {
@@ -24,4 +23,5 @@ on develop => sub {
     requires 'Pod::Weaver::Section::Homepage::DefaultCPAN';
     requires 'Pod::Elemental::Transformer::List';
     requires 'Pod::Elemental::Transformer::Splint';
+    requires 'Test::Warnings',
 };
