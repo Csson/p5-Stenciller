@@ -13,7 +13,7 @@ before_install:
    - git config --global user.name "TravisCI"
    - git config --global user.email $HOSTNAME":not-for-mail@travis-ci.org"
    - cpanm Syntax::Feature::Qs -v
-   - cpanm Pod::Weaver::Section::Source::DefaultGithub
+   - cpanm Pod::Weaver::Section::Source::DefaultGitHub
    - cpanm Pod::Weaver::Section::Homepage::DefaultCPAN
    - cpanm Pod::Elemental::Transformer::List
    - cpanm Pod::Elemental::Transformer::Splint
