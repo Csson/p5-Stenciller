@@ -4,24 +4,32 @@ Revision history for Stenciller
  [API Changes]
 
  [Bug Fixes]
- - There were some issues with the previously required version of Syntax::Feature::Qs.
 
  [Documentation]
 
  [Enhancements]
- - Added 1; to a couple of modules (travis build errors).
 
  [Meta]
 
  [New Features]
 
  [Requirements]
- - Bumped Syntax::Feature::Qs req to 0.2004.
- - Added Test::Warnings to test prereqs.
 
  [Revision]
 
  [Testing]
+
+0.1211 2015-02-10T16:31:06Z CET
+ [Bug Fixes]
+ - There were some issues with the previously required version of
+   Syntax::Feature::Qs.
+
+ [Enhancements]
+ - Added 1; to a couple of modules (travis build errors).
+
+ [Requirements]
+ - Bumped Syntax::Feature::Qs req to 0.2004.
+ - Added Test::Warnings to test prereqs.
 
 0.1210 2015-02-09T20:16:55Z CET
  [Documentation]
