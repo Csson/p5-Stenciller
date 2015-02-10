@@ -19,7 +19,7 @@ on test => sub {
 };
 
 on develop => sub {
-    requires 'Pod::Weaver::Section::Source::DefaultGithub';
+    requires 'Pod::Weaver::Section::Source::DefaultGitHub';
     requires 'Pod::Weaver::Section::Homepage::DefaultCPAN';
     requires 'Pod::Elemental::Transformer::List';
     requires 'Pod::Elemental::Transformer::Splint';

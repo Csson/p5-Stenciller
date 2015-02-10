@@ -9,6 +9,7 @@ Revision history for Stenciller
  [Documentation]
 
  [Enhancements]
+ - Added 1; to a couple of modules (travis build errors).
 
  [Meta]
 

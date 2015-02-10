@@ -71,7 +71,7 @@
             "Pod::Elemental::Transformer::List" : "0",
             "Pod::Elemental::Transformer::Splint" : "0",
             "Pod::Weaver::Section::Homepage::DefaultCPAN" : "0",
-            "Pod::Weaver::Section::Source::DefaultGithub" : "0",
+            "Pod::Weaver::Section::Source::DefaultGitHub" : "0",
             "Test::Pod" : "1.41"
          }
       },
