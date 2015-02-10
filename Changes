@@ -10,6 +10,7 @@ Revision history for Stenciller
  [Enhancements]
 
  [Meta]
+ - Stop using DZP::Prereqs::FromCPANfile, instead generate Prereqs plugins from iller.yaml.
 
  [New Features]
 

@@ -3,30 +3,39 @@
 
 name: Stenciller
 
-+authordeps:
- - 'Syntax::Feature::Qs'
- - 'Moops'
- - 'Pod::Weaver::Section::Source::DefaultGitHub'
- - 'Pod::Weaver::Section::Homepage::DefaultCPAN'
- - 'Pod::Elemental::Transformer::List'
- - 'Pod::Elemental::Transformer::Splint'
- - 'HTML::Entities'
- - 'List::AllUtils'
- - 'Module::Pluggable'
- - 'Moose'
- - 'MooseX::AttributeDocumented'
- - 'Kavorka::TraitFor::Parameter::doc'
- - 'Path::Tiny'
- - 'PerlX::Maybe'
- - 'Carp'
- - 'Types::Path::Tiny'
- - 'Pod::Weaver::Section::Source::DefaultGitHub'
- - 'Pod::Weaver::Section::Homepage::DefaultCPAN'
- - 'Pod::Elemental::Transformer::List'
- - 'Pod::Elemental::Transformer::Splint'
++prereqs:
+  runtime:
+    requires:
+      - perl: 5.014000
+      - Carp
+      - HTML::Entities
+      - List::AllUtils
+      - Module::Pluggable
+      - Moops: 0.034
+      - Moose: 2.0000
+      - MooseX::AttributeDocumented
+      - Kavorka::TraitFor::Parameter::doc
+      - Path::Tiny
+      - PerlX::Maybe
+      - Syntax::Feature::Qs: 0.2004
+      - Types::Path::Tiny
+  test:
+    requires:
+      - Test::More: 0.96
+      - Test::Deep
+      - Test::Differences
+  develop:
+    requires:
+      - Pod::Weaver::Section::Source::DefaultGitHub
+      - Pod::Weaver::Section::Homepage::DefaultCPAN
+      - Pod::Elemental::Transformer::List
+      - Pod::Elemental::Transformer::Splint
+      - Test::Warnings
 
 plugins:
   - config: Author::CSSON
+
+  - remove_plugin: Prereqs::FromCPANfile
 
   - add_plugin: TravisYML
     +before: Git::Tag
