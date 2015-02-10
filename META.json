@@ -82,7 +82,7 @@
             "Kavorka::TraitFor::Parameter::doc" : "0",
             "List::AllUtils" : "0",
             "Module::Pluggable" : "0",
-            "Moops" : "0",
+            "Moops" : "0.034",
             "Moose" : "2.0000",
             "MooseX::AttributeDocumented" : "0",
             "Path::Tiny" : "0",

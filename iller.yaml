@@ -10,7 +10,8 @@ plugins:
     +before: Git::Tag
     perl_version: 5.14 5.16
     post_before_install:
-    - cpanm Syntax::Feature::Qs@0.2004 -v
+    - cpanm Syntax::Feature::Qs~0.2004 -v
+    - cpanm Moops~0.034
     - cpanm Pod::Weaver::Section::Source::DefaultGitHub
     - cpanm Pod::Weaver::Section::Homepage::DefaultCPAN
     - cpanm Pod::Elemental::Transformer::List

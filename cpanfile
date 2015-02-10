@@ -3,7 +3,7 @@ requires 'perl', '5.014000';
 requires 'HTML::Entities';
 requires 'List::AllUtils';
 requires 'Module::Pluggable';
-requires 'Moops';
+requires 'Moops', '0.034';
 requires 'Moose', '2.0000';
 requires 'MooseX::AttributeDocumented';
 requires 'Kavorka::TraitFor::Parameter::doc';

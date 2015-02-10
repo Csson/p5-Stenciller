@@ -4,6 +4,7 @@ Revision history for Stenciller
  [API Changes]
 
  [Bug Fixes]
+ - There were some issues with the previously required version of Syntax::Feature::Qs.
 
  [Documentation]
 
@@ -14,6 +15,7 @@ Revision history for Stenciller
  [New Features]
 
  [Requirements]
+ - Bumped Syntax::Feature::Qs req to 0.2004.
 
  [Revision]
 
