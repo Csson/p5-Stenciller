@@ -3,19 +3,30 @@
 
 name: Stenciller
 
++authordeps:
+ - 'Syntax::Feature::Qs'
+ - 'Moops'
+ - 'Pod::Weaver::Section::Source::DefaultGitHub'
+ - 'Pod::Weaver::Section::Homepage::DefaultCPAN'
+ - 'Pod::Elemental::Transformer::List'
+ - 'Pod::Elemental::Transformer::Splint'
+ - 'HTML::Entities'
+ - 'List::AllUtils'
+ - 'Module::Pluggable'
+ - 'Moose'
+ - 'MooseX::AttributeDocumented'
+ - 'Kavorka::TraitFor::Parameter::doc'
+ - 'Path::Tiny'
+ - 'PerlX::Maybe'
+ - 'Carp'
+ - 'Types::Path::Tiny'
+
 plugins:
   - config: Author::CSSON
 
   - add_plugin: TravisYML
     +before: Git::Tag
     perl_version: 5.14 5.16
-    post_before_install:
-    - cpanm Syntax::Feature::Qs~0.2004 -v
-    - cpanm Moops~0.034
-    - cpanm Pod::Weaver::Section::Source::DefaultGitHub
-    - cpanm Pod::Weaver::Section::Homepage::DefaultCPAN
-    - cpanm Pod::Elemental::Transformer::List
-    - cpanm Pod::Elemental::Transformer::Splint
 
   - plugin: MetaProvides::FromFile
     file: meta.ini
