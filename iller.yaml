@@ -32,23 +32,23 @@ name: Stenciller
       - Pod::Elemental::Transformer::Splint
       - Test::Warnings
 
-plugins:
-  - config: Author::CSSON
++plugins:
+  - +config: Author::CSSON
 
-  - remove_plugin: Prereqs::FromCPANfile
+  - +remove_plugin: Prereqs::FromCPANfile
 
-  - add_plugin: TravisYML
+  - +add_plugin: TravisYML
     +before: Git::Tag
     perl_version: 5.14 5.16
 
-  - plugin: MetaProvides::FromFile
+  - +plugin: MetaProvides::FromFile
     file: meta.ini
 ---
 +doctype: weaver
 
-plugins:
-  - config: Author::CSSON
++plugins:
+  - +config: Author::CSSON
 
-  - extend_plugin: Splint
+  - +extend_plugin: Splint
     type_libraries: Types::Stenciller=Stencil,Stenciller
 
