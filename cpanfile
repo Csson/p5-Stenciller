@@ -16,6 +16,7 @@ on test => sub {
     requires 'Test::More', '0.96';
     requires 'Test::Deep';
     requires 'Test::Differences';
+    requires 'Test::Warnings',
 };
 
 on develop => sub {

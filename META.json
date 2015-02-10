@@ -95,7 +95,8 @@
          "requires" : {
             "Test::Deep" : "0",
             "Test::Differences" : "0",
-            "Test::More" : "0.96"
+            "Test::More" : "0.96",
+            "Test::Warnings" : "0"
          }
       }
    },

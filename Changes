@@ -17,6 +17,7 @@ Revision history for Stenciller
 
  [Requirements]
  - Bumped Syntax::Feature::Qs req to 0.2004.
+ - Added Test::Warnings to test prereqs.
 
  [Revision]
 
