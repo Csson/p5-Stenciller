@@ -105,6 +105,8 @@ class Stenciller::Stencil using Moose {
 
 }
 
+1;
+
 __END__
 
 =pod

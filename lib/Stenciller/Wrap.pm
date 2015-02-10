@@ -184,3 +184,5 @@ class Stenciller::Wrap using Moose with Stenciller::Utils {
         return $self->count_stencils - 1;
     }
 }
+
+1;
