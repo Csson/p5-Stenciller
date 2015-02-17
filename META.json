@@ -32,11 +32,11 @@
       "develop" : {
          "requires" : {
             "Dist::Zilla::Plugin::CheckChangesHasContent" : "0",
+            "Dist::Zilla::Plugin::CheckExtraTests" : "0",
             "Dist::Zilla::Plugin::ConfirmRelease" : "0",
             "Dist::Zilla::Plugin::ContributorsFromGit" : "0",
             "Dist::Zilla::Plugin::CopyFilesFromBuild" : "0",
             "Dist::Zilla::Plugin::ExecDir" : "0",
-            "Dist::Zilla::Plugin::ExtraTests" : "0",
             "Dist::Zilla::Plugin::Git::Check" : "0",
             "Dist::Zilla::Plugin::Git::GatherDir" : "0",
             "Dist::Zilla::Plugin::Git::Push" : "0",
@@ -64,14 +64,25 @@
             "Dist::Zilla::Plugin::Readme" : "0",
             "Dist::Zilla::Plugin::ReadmeAnyFromPod" : "0",
             "Dist::Zilla::Plugin::ReversionOnRelease" : "0",
+            "Dist::Zilla::Plugin::RunExtraTests" : "0",
             "Dist::Zilla::Plugin::ShareDir" : "0",
-            "Dist::Zilla::Plugin::TestRelease" : "0",
             "Dist::Zilla::Plugin::TravisYML" : "0",
             "Dist::Zilla::Plugin::UploadToCPAN" : "0",
             "Pod::Elemental::Transformer::List" : "0",
             "Pod::Elemental::Transformer::Splint" : "0",
+            "Pod::Weaver::Plugin::SingleEncoding" : "0",
+            "Pod::Weaver::Plugin::Transformer" : "0",
+            "Pod::Weaver::PluginBundle::CorePrep" : "0",
+            "Pod::Weaver::Section::Authors" : "0",
+            "Pod::Weaver::Section::Collect" : "0",
+            "Pod::Weaver::Section::Generic" : "0",
             "Pod::Weaver::Section::Homepage::DefaultCPAN" : "0",
+            "Pod::Weaver::Section::Leftovers" : "0",
+            "Pod::Weaver::Section::Legal" : "0",
+            "Pod::Weaver::Section::Name" : "0",
+            "Pod::Weaver::Section::Region" : "0",
             "Pod::Weaver::Section::Source::DefaultGitHub" : "0",
+            "Pod::Weaver::Section::Version" : "0",
             "Test::Pod" : "1.41",
             "Test::Warnings" : "0"
          }
@@ -104,39 +115,39 @@
    "provides" : {
       "Stenciller" : {
          "file" : "lib/Stenciller.pm",
-         "version" : "0.1212"
+         "version" : "0.1300"
       },
       "Stenciller::Plugin::ToHtmlPreBlock" : {
          "file" : "lib/Stenciller/Plugin/ToHtmlPreBlock.pm",
-         "version" : "0.1212"
+         "version" : "0.1300"
       },
       "Stenciller::Plugin::ToUnparsedText" : {
          "file" : "lib/Stenciller/Plugin/ToUnparsedText.pm",
-         "version" : "0.1212"
+         "version" : "0.1300"
       },
       "Stenciller::Standard" : {
          "file" : "lib/Stenciller/Standard.pm",
-         "version" : "0.1212"
+         "version" : "0.1300"
       },
       "Stenciller::Stencil" : {
          "file" : "lib/Stenciller/Stencil.pm",
-         "version" : "0.1212"
+         "version" : "0.1300"
       },
       "Stenciller::Transformer" : {
          "file" : "lib/Stenciller/Transformer.pm",
-         "version" : "0.1212"
+         "version" : "0.1300"
       },
       "Stenciller::Utils" : {
          "file" : "lib/Stenciller/Utils.pm",
-         "version" : "0.1212"
+         "version" : "0.1300"
       },
       "Stenciller::Wrap" : {
          "file" : "lib/Stenciller/Wrap.pm",
-         "version" : "0.1212"
+         "version" : "0.1300"
       },
       "Types::Stenciller" : {
          "file" : "lib/Types/Stenciller.pm",
-         "version" : "0.1212"
+         "version" : "0.1300"
       }
    },
    "release_status" : "stable",
@@ -151,6 +162,6 @@
          "web" : "https://github.com/Csson/p5-Stenciller"
       }
    },
-   "version" : "0.1212"
+   "version" : "0.1300"
 }
 

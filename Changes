@@ -8,9 +8,9 @@ Revision history for Stenciller
  [Documentation]
 
  [Enhancements]
+ - Added stencil_name attribute to Stenciller::Stencil.
 
  [Meta]
- - Stop using DZP::Prereqs::FromCPANfile, instead generate Prereqs plugins from iller.yaml.
 
  [New Features]
 
@@ -19,6 +19,11 @@ Revision history for Stenciller
  [Revision]
 
  [Testing]
+
+0.1212 2015-02-10T18:20:28Z CET
+ [Meta]
+ - Stop using DZP::Prereqs::FromCPANfile, instead generate Prereqs plugins
+   from iller.yaml.
 
 0.1211 2015-02-10T16:31:06Z CET
  [Bug Fixes]

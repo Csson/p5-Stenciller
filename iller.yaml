@@ -52,3 +52,9 @@ name: Stenciller
   - +extend_plugin: Splint
     type_libraries: Types::Stenciller=Stencil,Stenciller
 
+  - +plugin: Badges
+    badge: travis
+    -travis_user: Csson
+    -travis_repo: p5-Stenciller
+    -travis_branch: master
+

@@ -125,12 +125,16 @@ class Stenciller::Wrap using Moose with Stenciller::Utils {
                              : {}
                              ;
 
+                my $stencil_name = exists $settings->{'name'} ? delete $settings->{'name'} : $self->filepath->basename(qr/\..*/) . "-$line_count";
+                $stencil_name =~ s{[. -]}{_}g;
+                $stencil_name =~ s{[^a-zA-Z0-9_]}{}g;
+
                 $stencil = Stenciller::Stencil->new(
-                            name => exists $settings->{'name'} ? delete $settings->{'name'} : $self->filepath->basename . "-$line_count",
+                            stencil_name => $stencil_name,
                             loop_values => delete $settings->{'loop'},
                             line_number => $line_count,
                       maybe skip  => delete $settings->{'skip'},
-                    provided scalar keys %{ $settings }, extra_settings => $settings,
+                   provided scalar keys %{ $settings }, extra_settings => $settings,
                 );
                 $environment = 'before_input';
             }

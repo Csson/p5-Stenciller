@@ -31,7 +31,7 @@ sub transform {
                      $stencil->all_after_output, '';
     }
     my $content = join "\n" => '', @out, '';
-    $content =~ s{[\r?\n]{2,}}{\n\n}g;
+    $content =~ s{\v{2,}}{\n\n}g;
     return $content;
 }
 

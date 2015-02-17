@@ -33,11 +33,16 @@ class Stenciller::Stencil using Moose {
         default => 0,
         documentation => 'Should the Stencil not be included in the result?',
     );
-
     has line_number => (
         is => 'ro',
         isa => Int,
         documentation => 'Can be referenced in the output for easier backtracking.',
+    );
+    has stencil_name => (
+        is => 'ro',
+        isa => Str,
+        documentation => q{Can be given in the stencil hash with 'name'. Depends on used plugins if it is necessary/useful.},
+        documentation_default => '[filename]_[linenumber]',
     );
     has extra_settings => (
         is => 'ro',

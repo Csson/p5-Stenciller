@@ -2,7 +2,7 @@ Header
 
 lines
 
-== stencil {} ==
+== stencil { name => 'a_stencil_name' } ==
 
 If you write this:
 
