@@ -1,9 +1,12 @@
 use Stenciller::Standard;
+use strict;
+use warnings;
 
-# VERSION:
 # PODCLASSNAME
 
 role Stenciller::Utils using Moose {
+
+    # VERSION:
 
     method eval_to_hashref(Str $possible_hash!, Path|Str $faulty_file! --> HashRef) {
         my $settings = eval $possible_hash;

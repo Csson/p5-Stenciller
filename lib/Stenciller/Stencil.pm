@@ -1,10 +1,13 @@
 use Stenciller::Standard;
+use strict;
+use warnings;
 
-# VERSION:
-# ABSTRACT: One part of a file
 # PODCLASSNAME:
 
 class Stenciller::Stencil using Moose {
+
+    # VERSION:
+    # ABSTRACT: One part of a file
 
     my @attrs = qw/before_input input between output after_output/;
 

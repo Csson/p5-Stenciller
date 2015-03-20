@@ -1,10 +1,13 @@
 use Stenciller::Standard;
+use strict;
+use warnings;
 
-# VERSION:
-# ABSTRACT: A role for transformer plugins to consume
 # PODCLASSNAME
 
 role Stenciller::Transformer using Moose {
+
+    # VERSION:
+    # ABSTRACT: A role for transformer plugins to consume
 
     requires 'transform';
 
