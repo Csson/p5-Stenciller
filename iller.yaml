@@ -1,9 +1,10 @@
 ---
-+doctype: dist
+doctype: dist
 
-name: Stenciller
+header:
+  name: Stenciller
 
-+prereqs:
+prereqs:
   runtime:
     requires:
       - perl: 5.014000
@@ -21,7 +22,6 @@ name: Stenciller
       - Types::Path::Tiny
   test:
     requires:
-      - Test::More: 0.96
       - Test::Deep
       - Test::Differences
   develop:
@@ -32,7 +32,7 @@ name: Stenciller
       - Pod::Elemental::Transformer::Splint
       - Test::Warnings
 
-+plugins:
+plugins:
   - +config: Author::CSSON
 
   - +remove_plugin: Prereqs::FromCPANfile
@@ -44,17 +44,10 @@ name: Stenciller
   - +plugin: MetaProvides::FromFile
     file: meta.ini
 ---
-+doctype: weaver
+doctype: weaver
 
-+plugins:
+plugins:
   - +config: Author::CSSON
 
   - +extend_plugin: Splint
     type_libraries: Types::Stenciller=Stencil,Stenciller
-
-  - +plugin: Badges
-    badge: travis
-    -travis_user: Csson
-    -travis_repo: p5-Stenciller
-    -travis_branch: master
-
