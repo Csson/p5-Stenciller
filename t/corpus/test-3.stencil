@@ -36,3 +36,14 @@ It becomes this:
     <span class="badge">3</span>
 
 --end output--
+
+
+
+== stencil { loop => [qw/first second/]} ==
+
+--input--
+  looped: [var]
+--end input--
+--output--
+  looped: [var]
+--end output--

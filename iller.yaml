@@ -48,6 +48,7 @@ doctype: weaver
 
 plugins:
   - +config: Author::CSSON
+    splint: 1
 
   - +extend_plugin: Splint
     type_libraries: Types::Stenciller=Stencil,Stenciller

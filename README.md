@@ -2,9 +2,11 @@
 
 Stenciller - Transforms a flat file format to different output
 
+![Requires Perl 5.14+](https://img.shields.io/badge/perl-5.14+-brightgreen.svg) [![Travis status](https://api.travis-ci.org/Csson/p5-Stenciller.svg?branch=master)](https://travis-ci.org/Csson/p5-Stenciller)
+
 # VERSION
 
-Version 0.1300, released 2015-02-12.
+Version 0.1213, released 2015-11-22.
 
 # SYNOPSIS
 
@@ -72,7 +74,7 @@ Erik Carlsson <info@code301.com>
 
 # COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2015 by Erik Carlsson <info@code301.com>.
+This software is copyright (c) 2015 by Erik Carlsson.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

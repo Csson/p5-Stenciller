@@ -4,13 +4,17 @@ Revision history for Stenciller
  [API Changes]
 
  [Bug Fixes]
+ - Fixed looping stencils.
 
  [Documentation]
 
  [Enhancements]
  - Added stencil_name attribute to Stenciller::Stencil.
+ - Added strict and warnings to a couple of Moops classes (kwalitee).
 
  [Meta]
+ - Removed cpanfile, prereqs now set in dist.ini (via iller.yaml).
+ - Adapted iller.yaml to latest syntax.
 
  [New Features]
 

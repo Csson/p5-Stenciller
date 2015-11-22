@@ -24,10 +24,12 @@ lines
 If you write this:
 
     <%= badge '3' %>
+    <!-- a badge -->
 
 It becomes this:
 
     <span class="badge">3</span>
+    <!-- a badge -->
 
 };
 }

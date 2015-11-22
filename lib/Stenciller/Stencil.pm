@@ -18,7 +18,7 @@ class Stenciller::Stencil using Moose {
             isa => ArrayRef[Str],
             default => sub { [] },
             traits => ['Array'],
-            init_arg => undef,
+            #init_arg => undef,
             documentation_order => ++$order,
             documentation => sprintf ('Holds all lines of the %s section.', $attr),
             handles => {
@@ -27,6 +27,7 @@ class Stenciller::Stencil using Moose {
                 "all_$attr"    => 'elements',
                 "map_$attr"    => 'map',
                 "get_$attr"    => 'get',
+                "count_$attr"  => 'count',
             },
         );
     }
@@ -101,14 +102,17 @@ class Stenciller::Stencil using Moose {
     }
 
     method clone_with_loop_value(Str $loop_value) {
-        return Stenciller::Stencil->new(
-            before_input => $self->map_before_input( sub { $_ =~ s{ \[ var \] }{$loop_value}x }),
-                   input => $self->map_input( sub { $_ =~ s{ \[ var \] }{$loop_value}x }),
-                 between => $self->map_between( sub { $_ =~ s{ \[ var \] }{$loop_value}x }),
-                  output => $self->map_output( sub { $_ =~ s{ \[ var \] }{$loop_value}x }),
-                   after => $self->map_after( sub { $_ =~ s{ \[ var \] }{$loop_value}x }),
+        my $clone = Stenciller::Stencil->new(
+            before_input => [$self->map_before_input( sub { $_ =~ s{ \[ var \] }{$loop_value}rx })],
+                   input => [$self->map_input( sub { $_ =~ s{ \[ var \] }{$loop_value}rx })],
+                 between => [$self->map_between( sub { $_ =~ s{ \[ var \] }{$loop_value}rx })],
+                  output => [$self->map_output( sub { $_ =~ s{ \[ var \] }{$loop_value}rx })],
+            after_output => [$self->map_after_output( sub {  $_ =~ s{ \[ var \] }{$loop_value}rx })],
+            stencil_name => $self->stencil_name . "_$loop_value",
             (map { $_ => $self->$_ } qw/line_number extra_settings/)
         );
+
+        return $clone;
     }
 
 }

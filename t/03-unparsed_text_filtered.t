@@ -9,13 +9,15 @@ ok 1;
 
 my $stenciller = Stenciller->new(filepath => 't/corpus/test-3.stencil');
 
-is $stenciller->count_stencils, 2, 'Found stencils';
+is $stenciller->count_stencils, 4, 'Found stencils';
 
-eq_or_diff $stenciller->transform(plugin_name => 'ToUnparsedText', transform_args => { stencils => [1] }), result(), 'Unparsed pod';
+eq_or_diff $stenciller->transform(plugin_name => 'ToUnparsedText', transform_args => { stencils => [1] }), result1(), 'Unparsed pod';
+
+eq_or_diff $stenciller->transform(plugin_name => 'ToUnparsedText', transform_args => { stencils => [3] }), result3(), 'Unparsed pod';
 
 done_testing;
 
-sub result {
+sub result1 {
     return qq{
 
 Header
@@ -28,6 +30,19 @@ If you write this [2]:
 It becomes this:
 
     <span class="badge">3</span>
+
+};
+}
+
+sub result3 {
+    return qq{
+
+Header
+lines
+
+  looped: second
+
+  looped: second
 
 };
 }
