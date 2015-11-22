@@ -123,39 +123,39 @@
    "provides" : {
       "Stenciller" : {
          "file" : "lib/Stenciller.pm",
-         "version" : "0.1213"
+         "version" : "0.1300"
       },
       "Stenciller::Plugin::ToHtmlPreBlock" : {
          "file" : "lib/Stenciller/Plugin/ToHtmlPreBlock.pm",
-         "version" : "0.1213"
+         "version" : "0.1300"
       },
       "Stenciller::Plugin::ToUnparsedText" : {
          "file" : "lib/Stenciller/Plugin/ToUnparsedText.pm",
-         "version" : "0.1213"
+         "version" : "0.1300"
       },
       "Stenciller::Standard" : {
          "file" : "lib/Stenciller/Standard.pm",
-         "version" : "0.1213"
+         "version" : "0.1300"
       },
       "Stenciller::Stencil" : {
          "file" : "lib/Stenciller/Stencil.pm",
-         "version" : "0.1213"
+         "version" : "0.1300"
       },
       "Stenciller::Transformer" : {
          "file" : "lib/Stenciller/Transformer.pm",
-         "version" : "0.1213"
+         "version" : "0.1300"
       },
       "Stenciller::Utils" : {
          "file" : "lib/Stenciller/Utils.pm",
-         "version" : "0.1213"
+         "version" : "0.1300"
       },
       "Stenciller::Wrap" : {
          "file" : "lib/Stenciller/Wrap.pm",
-         "version" : "0.1213"
+         "version" : "0.1300"
       },
       "Types::Stenciller" : {
          "file" : "lib/Types/Stenciller.pm",
-         "version" : "0.1213"
+         "version" : "0.1300"
       }
    },
    "release_status" : "stable",
@@ -170,6 +170,6 @@
          "web" : "https://github.com/Csson/p5-Stenciller"
       }
    },
-   "version" : "0.1213"
+   "version" : "0.1300"
 }
 
