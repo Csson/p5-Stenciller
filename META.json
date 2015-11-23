@@ -4,7 +4,7 @@
       "Erik Carlsson <info@code301.com>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 5.031, CPAN::Meta::Converter version 2.143240",
+   "generated_by" : "Dist::Zilla version 5.041, CPAN::Meta::Converter version 2.143240",
    "license" : [
       "perl_5"
    ],
@@ -15,12 +15,12 @@
    "name" : "Stenciller",
    "no_index" : {
       "directory" : [
-         "t",
-         "xt",
+         "eg",
+         "examples",
          "inc",
          "share",
-         "eg",
-         "examples"
+         "t",
+         "xt"
       ]
    },
    "prereqs" : {
@@ -100,6 +100,7 @@
             "Moops" : "0.034",
             "Moose" : "2.0000",
             "MooseX::AttributeDocumented" : "0",
+            "MooseX::AttributeShortcuts" : "0",
             "Path::Tiny" : "0",
             "PerlX::Maybe" : "0",
             "Syntax::Feature::Qs" : "0.2004",
@@ -123,39 +124,39 @@
    "provides" : {
       "Stenciller" : {
          "file" : "lib/Stenciller.pm",
-         "version" : "0.1300"
+         "version" : "0.1400"
       },
       "Stenciller::Plugin::ToHtmlPreBlock" : {
          "file" : "lib/Stenciller/Plugin/ToHtmlPreBlock.pm",
-         "version" : "0.1300"
+         "version" : "0.1400"
       },
       "Stenciller::Plugin::ToUnparsedText" : {
          "file" : "lib/Stenciller/Plugin/ToUnparsedText.pm",
-         "version" : "0.1300"
+         "version" : "0.1400"
       },
       "Stenciller::Standard" : {
          "file" : "lib/Stenciller/Standard.pm",
-         "version" : "0.1300"
+         "version" : "0.1400"
       },
       "Stenciller::Stencil" : {
          "file" : "lib/Stenciller/Stencil.pm",
-         "version" : "0.1300"
+         "version" : "0.1400"
       },
       "Stenciller::Transformer" : {
          "file" : "lib/Stenciller/Transformer.pm",
-         "version" : "0.1300"
+         "version" : "0.1400"
       },
       "Stenciller::Utils" : {
          "file" : "lib/Stenciller/Utils.pm",
-         "version" : "0.1300"
+         "version" : "0.1400"
       },
       "Stenciller::Wrap" : {
          "file" : "lib/Stenciller/Wrap.pm",
-         "version" : "0.1300"
+         "version" : "0.1400"
       },
       "Types::Stenciller" : {
          "file" : "lib/Types/Stenciller.pm",
-         "version" : "0.1300"
+         "version" : "0.1400"
       }
    },
    "release_status" : "stable",
@@ -170,6 +171,6 @@
          "web" : "https://github.com/Csson/p5-Stenciller"
       }
    },
-   "version" : "0.1300"
+   "version" : "0.1400"
 }
 

@@ -10,7 +10,21 @@ use Moose;
 use List::AllUtils qw/first_index/;
 with 'Stenciller::Transformer';
 
+use Types::Standard qw/Bool Str Maybe/;
+use MooseX::AttributeShortcuts;
 use HTML::Entities 'encode_entities';
+
+has output_also_as_html => (
+    is => 'ro',
+    isa => Bool,
+    default => 0,
+);
+has separator => (
+    is => 'ro',
+    isa => Maybe[Str],
+    predicate => 1,
+);
+
 
 sub transform {
     my $self = shift;
@@ -29,7 +43,9 @@ sub transform {
                      $self->pre($stencil->all_input),
                      $self->normal($stencil->all_between),
                      $self->pre($stencil->all_output),
-                     $self->normal($stencil->all_after_output);
+                     $self->output_also_as_html ? $self->normal($stencil->all_output) : (),
+                     $self->normal($stencil->all_after_output,
+                     $self->has_separator && $i < $self->stenciller->max_stencil_index ? $self->separator : ());
 
     }
     return join "\n" => @out;
@@ -69,6 +85,20 @@ __END__
 This plugin to L<Stenciller> places the C<before_input>, C<between> and C<after_output> regions in C<E<lt>pE<gt>> tags and the C<input> and C<output> regions inside C<E<lt>preE<gt>> tags.
 
 Content that will be placed in C<pre> tags (input and output sections in stencils) also have four leading spaces removed.
+
+=head1 ATTRIBUTES
+
+=head2 output_also_as_html
+
+Default: C<0>
+
+If set to a true value, the contents of C<output> in stencils is rendered as html (directly following the pre-block).
+
+=head2 separator
+
+Default: C<undef>
+
+When set, this text is used to separate two stencils.
 
 =head1 METHODS
 

@@ -8,6 +8,9 @@ Revision history for Stenciller
  [Documentation]
 
  [Enhancements]
+ - ToUnparsedText: Added option for generating html blocks for pod (text_as_html_pod).
+ - ToHtmlPreBlock: Added option for generating 'output' as html too (output_also_as_html).
+ - ToHtmlPreBlock: Added option for specifying the separator between transformed stencils (separator).
 
  [Meta]
 

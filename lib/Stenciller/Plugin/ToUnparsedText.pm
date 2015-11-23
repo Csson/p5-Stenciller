@@ -9,6 +9,7 @@ package Stenciller::Plugin::ToUnparsedText;
 use Moose;
 use List::AllUtils qw/first_index/;
 with 'Stenciller::Transformer';
+use Types::Standard qw/Bool/;
 
 has text_as_html_pod => (
     is => 'ro',
@@ -44,7 +45,7 @@ sub transform {
 
 sub maybe_as_html_pod {
     my $self = shift;
-    my @text = shift;
+    my @text = @_;
 
     return @text if !$self->text_as_html_pod;
     return @text if !scalar @text;
@@ -88,6 +89,15 @@ If this plugin is used via L<Pod::Elemental::Transformer::Stenciller> it could b
 
     # includes only the header_lines
     :stenciller ToUnparsedText atestfile-1.stencil { stencils => [] }
+
+=head1 ATTRIBUTES
+
+=head2 text_as_html_pod
+
+Default: 0
+
+If set to a true value, the parts that are neither C<input> or C<output> will be rendered between C<=begin html> and C<=end html>. This is useful
+when rendering the same stencils to html examples files as well as including in pod.
 
 =head1 METHODS
 

@@ -11,22 +11,27 @@ my $stenciller = Stenciller->new(filepath => 't/corpus/test-6.stencil');
 
 is $stenciller->count_stencils, 1, 'Found stencils';
 
-eq_or_diff $stenciller->transform(plugin_name => 'ToUnparsedText', { transform_args => { text_as_html_pod => 1 }}), result(), 'Unparsed pod';
+eq_or_diff $stenciller->transform(plugin_name => 'ToUnparsedText', constructor_args => { text_as_html_pod => 1 }), result(), 'Unparsed pod';
 
 done_testing;
 
 sub result {
     return qq{
 
-Header
-lines
+=begin html
 
-If you write this:
+If you <code>write</code> this:
 
-    <%= badge '3' %>
+=end html
+
+    <%= badge \'3\' %>
     <!-- a badge -->
 
-It becomes this:
+=begin html
+
+It becomes <b>this</b>:
+
+=end html
 
     <span class="badge">3</span>
     <!-- a badge -->
