@@ -10,6 +10,13 @@ use Moose;
 use List::AllUtils qw/first_index/;
 with 'Stenciller::Transformer';
 
+has text_as_html_pod => (
+    is => 'ro',
+    isa => Bool,
+    default => 0,
+);
+
+
 sub transform {
     my $self = shift;
     my $transform_args = shift;
@@ -24,15 +31,28 @@ sub transform {
         next STENCIL if $self->should_skip_stencil($stencil, $transform_args);
 
         push @out => '',
-                     $stencil->all_before_input, '',
+                     $self->maybe_as_html_pod($stencil->all_before_input), '',
                      $stencil->all_input, '',
-                     $stencil->all_between, '',
+                     $self->maybe_as_html_pod($stencil->all_between), '',
                      $stencil->all_output, '',
-                     $stencil->all_after_output, '';
+                     $self->maybe_as_html_pod($stencil->all_after_output), '';
     }
     my $content = join "\n" => '', @out, '';
     $content =~ s{\v{2,}}{\n\n}g;
     return $content;
+}
+
+sub maybe_as_html_pod {
+    my $self = shift;
+    my @text = shift;
+
+    return @text if !$self->text_as_html_pod;
+    return @text if !scalar @text;
+
+    unshift @text => '', '=begin html', '';
+    push @text => '', '=end html', '';
+    return @text;
+
 }
 
 1;
