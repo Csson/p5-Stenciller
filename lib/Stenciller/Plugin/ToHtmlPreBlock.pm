@@ -3,6 +3,7 @@ use strict;
 use warnings;
 
 package Stenciller::Plugin::ToHtmlPreBlock;
+
 # VERSION:
 # ABSTRACT: A plugin that transforms to html
 
@@ -43,9 +44,9 @@ sub transform {
                      $self->pre($stencil->all_input),
                      $self->normal($stencil->all_between),
                      $self->pre($stencil->all_output),
-                     $self->output_also_as_html ? $self->normal($stencil->all_output) : (),
-                     $self->normal($stencil->all_after_output,
-                     $self->has_separator && $i < $self->stenciller->max_stencil_index ? $self->separator : ());
+                     $self->output_also_as_html ? $self->normal([$stencil->all_output]) : (),
+                     $self->normal($stencil->all_after_output),
+                     $self->has_separator && $i < $self->stenciller->max_stencil_index ? $self->separator : ();
 
     }
     return join "\n" => @out;
@@ -56,7 +57,12 @@ sub normal {
     my @lines = @_;
 
     return () if !scalar @lines;
-    return join '' => ('<p>', join ('' => @lines), '</p>');
+    my $tag = 'p';
+    if(ref $lines[0] eq 'ARRAY') {
+        $tag = 'div';
+        @lines = @{ $lines[0] };
+    }
+    return join '' => ("<$tag>", join ('' => @lines), "</$tag>");
 }
 sub pre {
     my $self = shift;

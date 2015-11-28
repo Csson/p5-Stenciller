@@ -20,6 +20,7 @@ prereqs:
       - Path::Tiny
       - PerlX::Maybe
       - Syntax::Feature::Qs: 0.2004
+      - Types::Standard
       - Types::Path::Tiny
   test:
     requires:
@@ -37,10 +38,6 @@ plugins:
   - +config: Author::CSSON
 
   - +remove_plugin: Prereqs::FromCPANfile
-
-  - +add_plugin: TravisYML
-    +before: Git::Tag
-    perl_version: 5.14 5.16
 
   - +plugin: MetaProvides::FromFile
     file: meta.ini

@@ -2,12 +2,14 @@ use Stenciller::Standard;
 use Stenciller::Stencil;
 use strict;
 use warnings;
-# VERSION:
+
 # PODCLASSNAME
 
 use Module::Pluggable search_path => ['Stenciller::Plugin'];
 
 class Stenciller::Wrap using Moose with Stenciller::Utils {
+
+    # VERSION
 
     use Module::Load;
     use Carp 'croak';

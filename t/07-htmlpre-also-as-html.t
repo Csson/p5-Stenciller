@@ -28,13 +28,13 @@ lines
 <p>It becomes this:</p>
 <pre>&lt;span class=&quot;badge&quot;&gt;3&lt;/span&gt;
 </pre>
-<p>    <span class="badge">3</span></p>
-<p><hr /></p>
+<div>    <span class="badge">3</span></div>
+<hr />
 <p>If you write this:</p>
 <pre>&lt;%= badge &#39;3&#39; %&gt;
 </pre>
 <p>It becomes this:</p>
 <pre>&lt;span class=&quot;badge&quot;&gt;3&lt;/span&gt;
 </pre>
-<p>    <span class="badge">3</span></p>};
+<div>    <span class="badge">3</span></div>};
 };

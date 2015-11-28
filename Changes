@@ -8,14 +8,16 @@ Revision history for Stenciller
  [Documentation]
 
  [Enhancements]
+ - ToHtmlPreBlock: Reduce amount of tags when using 'output_also_as_html'.
 
  [Meta]
 
  [New Features]
 
  [Requirements]
+ - Added missing prereq (Types::Standard).
 
- [Revision]
+ [Other Changes]
 
  [Testing]
 

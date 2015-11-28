@@ -4,7 +4,7 @@
       "Erik Carlsson <info@code301.com>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 5.041, CPAN::Meta::Converter version 2.143240",
+   "generated_by" : "Dist::Zilla version 5.042, Dist::Iller version 0.1210, CPAN::Meta::Converter version 2.143240",
    "license" : [
       "perl_5"
    ],
@@ -33,15 +33,18 @@
          "requires" : {
             "Dist::Zilla::Plugin::CheckChangesHasContent" : "0",
             "Dist::Zilla::Plugin::CheckExtraTests" : "0",
+            "Dist::Zilla::Plugin::Clean" : "0",
             "Dist::Zilla::Plugin::ConfirmRelease" : "0",
-            "Dist::Zilla::Plugin::ContributorsFromGit" : "0",
             "Dist::Zilla::Plugin::CopyFilesFromBuild" : "0",
+            "Dist::Zilla::Plugin::DistIller::MetaGeneratedBy" : "0",
             "Dist::Zilla::Plugin::ExecDir" : "0",
             "Dist::Zilla::Plugin::Git::Check" : "0",
+            "Dist::Zilla::Plugin::Git::Contributors" : "0",
             "Dist::Zilla::Plugin::Git::GatherDir" : "0",
             "Dist::Zilla::Plugin::Git::Push" : "0",
             "Dist::Zilla::Plugin::Git::Tag" : "0",
             "Dist::Zilla::Plugin::GithubMeta" : "0",
+            "Dist::Zilla::Plugin::InstallRelease" : "0",
             "Dist::Zilla::Plugin::License" : "0",
             "Dist::Zilla::Plugin::MakeMaker" : "0",
             "Dist::Zilla::Plugin::Manifest" : "0",
@@ -105,6 +108,7 @@
             "PerlX::Maybe" : "0",
             "Syntax::Feature::Qs" : "0.2004",
             "Types::Path::Tiny" : "0",
+            "Types::Standard" : "0",
             "perl" : "5.014000"
          }
       },
@@ -124,39 +128,39 @@
    "provides" : {
       "Stenciller" : {
          "file" : "lib/Stenciller.pm",
-         "version" : "0.1301"
+         "version" : "0.1302"
       },
       "Stenciller::Plugin::ToHtmlPreBlock" : {
          "file" : "lib/Stenciller/Plugin/ToHtmlPreBlock.pm",
-         "version" : "0.1301"
+         "version" : "0.1302"
       },
       "Stenciller::Plugin::ToUnparsedText" : {
          "file" : "lib/Stenciller/Plugin/ToUnparsedText.pm",
-         "version" : "0.1301"
+         "version" : "0.1302"
       },
       "Stenciller::Standard" : {
          "file" : "lib/Stenciller/Standard.pm",
-         "version" : "0.1301"
+         "version" : "0.1302"
       },
       "Stenciller::Stencil" : {
          "file" : "lib/Stenciller/Stencil.pm",
-         "version" : "0.1301"
+         "version" : "0.1302"
       },
       "Stenciller::Transformer" : {
          "file" : "lib/Stenciller/Transformer.pm",
-         "version" : "0.1301"
+         "version" : "0.1302"
       },
       "Stenciller::Utils" : {
          "file" : "lib/Stenciller/Utils.pm",
-         "version" : "0.1301"
+         "version" : "0.1302"
       },
       "Stenciller::Wrap" : {
          "file" : "lib/Stenciller/Wrap.pm",
-         "version" : "0.1301"
+         "version" : "0.1302"
       },
       "Types::Stenciller" : {
          "file" : "lib/Types/Stenciller.pm",
-         "version" : "0.1301"
+         "version" : "0.1302"
       }
    },
    "release_status" : "stable",
@@ -171,6 +175,6 @@
          "web" : "https://github.com/Csson/p5-Stenciller"
       }
    },
-   "version" : "0.1301"
+   "version" : "0.1302"
 }
 

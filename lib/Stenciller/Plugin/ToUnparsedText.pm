@@ -3,6 +3,7 @@ use strict;
 use warnings;
 
 package Stenciller::Plugin::ToUnparsedText;
+
 # VERSION:
 # ABSTRACT: A plugin that doesn't transform the text
 
