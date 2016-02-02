@@ -84,7 +84,7 @@ class Stenciller::Wrap using Moose with Stenciller::Utils {
         return !!$count || 0;
     }
 
-    method transform(Str :$plugin_name!          does doc('Plugin to read contents with.'),
+    method transform(Str :$plugin_name!          does doc('Plugin that will generate output.'),
                      HashRef :$constructor_args? does doc('Constructor arguments for the plugin.')     = {},
                      HashRef :$transform_args?   does doc('Settings for the specific transformation.') = {}, ...
                  --> Str     but assumed         does doc('The transformed content.')

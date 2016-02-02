@@ -48,7 +48,7 @@ Stenciller reads a special fileformat and provides a way to convert the content 
 
     --end output--
 
-This is the basic layout. A stencil ends when a new stencil block is discovered (there is no set limit to the number of stencils in a file). The (optional) hash is for settings. Each stencil has five parts: C<before_input>, C<input>, C<between>, C<output> and C<after_output>. In addition to this
+This is the basic layout. A stencil ends when a new stencil block is discovered (there is no fixed limit to the number of stencils in a file). The (optional) hash is for settings. Each stencil has five parts: C<before_input>, C<input>, C<between>, C<output> and C<after_output>. In addition to this
 there is a header before the first stencil.
 
 =head1 ATTRIBUTES
@@ -66,6 +66,7 @@ The actual transforming is done by plugins. There are two plugins bundled in thi
 =for :list
 * L<Stenciller::Plugin::ToUnparsedText>
 * L<Stenciller::Plugin::ToHtmlPreBlock>
+* L<Pod::Elemental::Transformer::Stenciller>
 
 Custom plugins should be in the L<Stenciller::Plugin> namespace and consume the L<Stenciller::Transformer> role.
 
