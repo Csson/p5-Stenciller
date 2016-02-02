@@ -1,4 +1,4 @@
-use 5.14.0;
+use 5.10.1;
 use strict;
 use warnings;
 
@@ -8,8 +8,10 @@ package Stenciller::Plugin::ToUnparsedText;
 # ABSTRACT: A plugin that doesn't transform the text
 
 use Moose;
-use List::AllUtils qw/first_index/;
 with 'Stenciller::Transformer';
+use namespace::autoclean;
+
+use List::MoreUtils qw/first_index/;
 use Types::Standard qw/Bool/;
 
 has text_as_html_pod => (
@@ -17,7 +19,6 @@ has text_as_html_pod => (
     isa => Bool,
     default => 0,
 );
-
 
 sub transform {
     my $self = shift;
@@ -56,6 +57,8 @@ sub maybe_as_html_pod {
     return @text;
 
 }
+
+__PACKAGE__->meta->make_immutable;
 
 1;
 

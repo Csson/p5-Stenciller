@@ -2,11 +2,11 @@
 
 Stenciller - Transforms a flat file format to different output
 
-![Requires Perl 5.14+](https://img.shields.io/badge/perl-5.14+-brightgreen.svg) [![Travis status](https://api.travis-ci.org/Csson/p5-Stenciller.svg?branch=master)](https://travis-ci.org/Csson/p5-Stenciller)
+![Requires Perl 5.10.1+](https://img.shields.io/badge/perl-5.10.1+-brightgreen.svg) [![Travis status](https://api.travis-ci.org/Csson/p5-Stenciller.svg?branch=master)](https://travis-ci.org/Csson/p5-Stenciller) 
 
 # VERSION
 
-Version 0.1303, released 2016-01-12.
+Version 0.1303, released 2016-02-02.
 
 # SYNOPSIS
 
@@ -111,54 +111,21 @@ there is a header before the first stencil.
 
 ## transform
 
-<p></p>
+    $stenciller->transform(
+        plugin_name => 'ToUnparsedText',
+        constructor_args => {
+            plugin_specific_args => ...,
+        },
+        tranform_args => {
+            transformation_specific_args => ...,
+        },
+    );
 
-<!-- -->
-<table style="margin-bottom: 10px; margin-left: 10px; border-collapse: bollapse;" cellpadding="0" cellspacing="0">
+`plugin_name` is mandatory and should be a class under the `Stenciller::Plugin` namespace.
 
-<tr style="vertical-align: top;">
-    <td style="text-align: left; color: #444; padding-left: 5px; font-weight: bold; background-color: #e8eee8;">Named parameters</td>
-    <td style="text-align: left; color: #444; padding-left: 5px; font-weight: bold; background-color: #e8eee8;">&#160;</td>
-    <td style="text-align: left; color: #444; padding-left: 5px; font-weight: bold; background-color: #e8eee8;">&#160;</td>
-    <td style="text-align: left; color: #444; padding-left: 5px; font-weight: bold; background-color: #e8eee8;">&#160;</td>
-    <td style="text-align: left; color: #444; padding-left: 5px; font-weight: bold; background-color: #e8eee8;">&#160;</td>
-</tr>
-<tr style="vertical-align: top;">
-    <td style="vertical-align: top; border-right: 1px solid #eee; white-space: nowrap;  padding: 3px 6px; border-bottom: 1px solid #eee;"><code>plugin_name =&gt; $value</code></td>
-    <td style="vertical-align: top; border-right: 1px solid #eee; white-space: nowrap;  padding: 3px 6px; border-bottom: 1px solid #eee;"><a href="https://metacpan.org/pod/Types::Standard#Str">Str</a></td>
-    <td style="vertical-align: top; border-right: 1px solid #eee; white-space: nowrap;  padding: 3px 6px; border-bottom: 1px solid #eee;">required</td>
-    <td style="vertical-align: top; border-right: 1px solid #eee; white-space: nowrap;  border-bottom: 1px solid #eee;"></td>
-    <td style="padding: 3px 6px; vertical-align: top;  border-bottom: 1px solid #eee;">Plugin that will generate output.</td>
-</tr>
-<tr style="vertical-align: top;">
-    <td style="vertical-align: top; border-right: 1px solid #eee; white-space: nowrap;  padding: 3px 6px; border-bottom: 1px solid #eee;"><code>constructor_args =&gt; $value</code></td>
-    <td style="vertical-align: top; border-right: 1px solid #eee; white-space: nowrap;  padding: 3px 6px; border-bottom: 1px solid #eee;"><a href="https://metacpan.org/pod/Types::Standard#HashRef">HashRef</a></td>
-    <td style="vertical-align: top; border-right: 1px solid #eee; white-space: nowrap;  padding: 3px 6px; border-bottom: 1px solid #eee;">optional, default <code>= { }</code></td>
-    <td style="vertical-align: top; border-right: 1px solid #eee; white-space: nowrap;  border-bottom: 1px solid #eee;"></td>
-    <td style="padding: 3px 6px; vertical-align: top;  border-bottom: 1px solid #eee;">Constructor arguments for the plugin.</td>
-</tr>
-<tr style="vertical-align: top;">
-    <td style="vertical-align: top; border-right: 1px solid #eee; white-space: nowrap;  padding: 3px 6px; border-bottom: 1px solid #eee;"><code>transform_args =&gt; $value</code></td>
-    <td style="vertical-align: top; border-right: 1px solid #eee; white-space: nowrap;  padding: 3px 6px; border-bottom: 1px solid #eee;"><a href="https://metacpan.org/pod/Types::Standard#HashRef">HashRef</a></td>
-    <td style="vertical-align: top; border-right: 1px solid #eee; white-space: nowrap;  padding: 3px 6px; border-bottom: 1px solid #eee;">optional, default <code>= { }</code></td>
-    <td style="vertical-align: top; border-right: 1px solid #eee; white-space: nowrap;  border-bottom: 1px solid #eee;"></td>
-    <td style="padding: 3px 6px; vertical-align: top;  border-bottom: 1px solid #eee;">Settings for the specific transformation.</td>
-</tr>
-<tr style="vertical-align: top;">
-    <td style="text-align: left; color: #444; padding-left: 5px; font-weight: bold; background-color: #e8e8ee;">Returns</td>
-    <td style="text-align: left; color: #444; padding-left: 5px; font-weight: bold; background-color: #e8e8ee;">&#160;</td>
-    <td style="text-align: left; color: #444; padding-left: 5px; font-weight: bold; background-color: #e8e8ee;">&#160;</td>
-    <td style="text-align: left; color: #444; padding-left: 5px; font-weight: bold; background-color: #e8e8ee;">&#160;</td>
-    <td style="text-align: left; color: #444; padding-left: 5px; font-weight: bold; background-color: #e8e8ee;">&#160;</td>
-</tr>
-<tr style="vertical-align: top;">
-    <td style="vertical-align: top; border-right: 1px solid #eee;  padding: 3px 6px; border-bottom: 1px solid #eee;"><a href="https://metacpan.org/pod/Types::Standard#Str">Str</a></td>
-    <td style="vertical-align: top; border-right: 1px solid #eee;  padding: 3px 6px; border-bottom: 1px solid #eee;">&#160;</td>
-    <td style="vertical-align: top; border-right: 1px solid #eee;  padding: 3px 6px; border-bottom: 1px solid #eee;">&#160;</td>
-    <td style="vertical-align: top; border-right: 1px solid #eee;  padding: 3px 6px; border-bottom: 1px solid #eee;">&#160;</td>
-    <td style="padding: 3px 6px; vertical-align: top;  border-bottom: 1px solid #eee;">The transformed content.</td>
-</tr>
-</table>
+`constructor_args` is optional. This hash reference will be passed on to the plugin constructor. Valid keys depends on the plugin.
+
+`transform_args` is optional. This hash reference will be passed on to the `transform` method in the plugin. Valid keys depends on the plugin.
 
 # PLUGINS
 

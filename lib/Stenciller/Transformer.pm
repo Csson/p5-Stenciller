@@ -1,42 +1,55 @@
-use Stenciller::Standard;
+use 5.10.1;
 use strict;
 use warnings;
 
-# PODCLASSNAME
+package Stenciller::Transformer;
 
-role Stenciller::Transformer using Moose {
+# VERSION:
+# ABSTRACT: A role for transformer plugins to consume
 
-    # VERSION:
-    # ABSTRACT: A role for transformer plugins to consume
+use Moose::Role;
+use Types::Standard qw/HashRef/;
+use Types::Stenciller qw/Stenciller/;
+use List::MoreUtils qw/first_index/;
 
-    requires 'transform';
+requires 'transform';
 
-    has stenciller => (
-        is => 'ro',
-        isa => Stenciller,
-        required => 1,
-    );
+has stenciller => (
+    is => 'ro',
+    isa => Stenciller,
+    required => 1,
+);
 
-    method init_out(Stenciller $stenciller, HashRef $transform_args) {
-        my @out = ('');
-        push (@out => $stenciller->all_header_lines, '') if !$transform_args->{'skip_header_lines'};
-        return @out;
-    }
+sub init_out {
+    my $self = shift;
+    my $stenciller = shift;
+    my $transform_args = shift || {};
 
-    method should_skip_stencil_by_index(Int $index, HashRef $transform_args) {
-        return 1 if exists $transform_args->{'stencils'} && -1 == first_index { $_ == $index } @{ $transform_args->{'stencils'} };
-        return 0;
-    }
+    my @out = ('');
+    push (@out => $stenciller->all_header_lines, '') if !$transform_args->{'skip_header_lines'};
+    return @out;
+}
 
-    method should_skip_stencil(Stencil $stencil, HashRef $transform_args) {
-        return 0 if !exists $transform_args->{'require_in_extra'};
-        my $wanted_key = $transform_args->{'require_in_extra'}{'key'};
-        my $required_value = $transform_args->{'require_in_extra'}{'value'};
-        my $default_value = $transform_args->{'require_in_extra'}{'default'};
+sub should_skip_stencil_by_index {
+    my $self = shift;
+    my $index = shift;
+    my $transform_args = shift || {};
+    return 1 if exists $transform_args->{'stencils'} && -1 == first_index { $_ == $index } @{ $transform_args->{'stencils'} };
+    return 0;
+}
 
-        return !$default_value if !defined $stencil->get_extra_setting($wanted_key);
-        return !$stencil->get_extra_setting($wanted_key);
-    }
+sub should_skip_stencil {
+    my $self = shift;
+    my $stencil = shift;
+    my $transform_args = shift || {};
+
+    return 0 if !exists $transform_args->{'require_in_extra'};
+    my $wanted_key = $transform_args->{'require_in_extra'}{'key'};
+    my $required_value = $transform_args->{'require_in_extra'}{'value'};
+    my $default_value = $transform_args->{'require_in_extra'}{'default'};
+
+    return !$default_value if !defined $stencil->get_extra_setting($wanted_key);
+    return !$stencil->get_extra_setting($wanted_key);
 }
 
 1;

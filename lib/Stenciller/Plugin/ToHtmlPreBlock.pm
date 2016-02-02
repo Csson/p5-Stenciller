@@ -1,4 +1,4 @@
-use 5.14.0;
+use 5.10.1;
 use strict;
 use warnings;
 
@@ -8,9 +8,10 @@ package Stenciller::Plugin::ToHtmlPreBlock;
 # ABSTRACT: A plugin that transforms to html
 
 use Moose;
-use List::AllUtils qw/first_index/;
 with 'Stenciller::Transformer';
+use namespace::autoclean;
 
+use List::MoreUtils qw/first_index/;
 use Types::Standard qw/Bool Str Maybe/;
 use MooseX::AttributeShortcuts;
 use HTML::Entities 'encode_entities';
@@ -71,6 +72,8 @@ sub pre {
     my @encoded_lines = map { $_ =~ s{^ {4}}{}; encode_entities($_) } @lines;
     return join '' => ('<pre>', join ("\n" => @encoded_lines), '</pre>');
 }
+
+__PACKAGE__->meta->make_immutable;
 
 1;
 

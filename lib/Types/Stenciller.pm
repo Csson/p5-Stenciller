@@ -1,23 +1,17 @@
-use 5.14.0;
+use 5.10.1;
 use strict;
 use warnings;
 
-use Moops;
+package Types::Stenciller;
 
-# PODCLASSNAME:
+# VERSION
 # ABSTRACT: Types for Stenciller
 
-library Types::Stenciller
-extends Types::Standard, Types::Path::Tiny
+use Type::Library -base, -declare => qw/Stencil Stenciller/;
+use Type::Utils -all;
 
-{
-
-    # VERSION:
-
-    class_type Stenciller => { class => 'Stenciller::Wrap' };
-    class_type Stencil    => { class => 'Stenciller::Stencil' };
-
-}
+class_type Stenciller => { class => 'Stenciller' };
+class_type Stencil    => { class => 'Stenciller::Stencil' };
 
 1;
 

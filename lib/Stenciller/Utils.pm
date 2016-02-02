@@ -1,23 +1,21 @@
-use Stenciller::Standard;
+use 5.10.1;
 use strict;
 use warnings;
 
-# PODCLASSNAME
+package Stenciller::Utils;
 
-role Stenciller::Utils using Moose {
+# VERSION:
 
-    # VERSION:
+use Moose::Role;
 
-    method eval_to_hashref(Str $possible_hash!, Path|Str $faulty_file! --> HashRef) {
-        my $settings = eval $possible_hash;
-        die sprintf "Can't parse stencil start: <%s> in %s: %s", $possible_hash, $faulty_file, $@ if $@;
-        return $settings;
-    }
-    method eval(Str $string!) {
-        eval $string;
-        die sprintf "Can't parse %s: %s", $string, $@ if $@;
-        return 1;
-    }
+sub eval_to_hashref {
+    my $self = shift;
+    my $possible_hash = shift; # Str
+    my $faulty_file = shift;   # Path|Str
+
+    my $settings = eval $possible_hash;
+    die sprintf "Can't parse stencil start: <%s> in %s: %s", $possible_hash, $faulty_file, $@ if $@;
+    return $settings;
 }
 
 1;

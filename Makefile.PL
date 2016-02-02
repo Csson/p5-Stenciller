@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 
-use 5.014000;
+use 5.010001;
 
 use ExtUtils::MakeMaker;
 
@@ -14,27 +14,29 @@ my %WriteMakefileArgs = (
   },
   "DISTNAME" => "Stenciller",
   "LICENSE" => "perl",
-  "MIN_PERL_VERSION" => "5.014000",
+  "MIN_PERL_VERSION" => "5.010001",
   "NAME" => "Stenciller",
   "PREREQ_PM" => {
     "Carp" => 0,
     "HTML::Entities" => 0,
-    "Kavorka::TraitFor::Parameter::doc" => 0,
-    "List::AllUtils" => 0,
+    "List::MoreUtils" => 0,
+    "List::Util" => 0,
     "Module::Pluggable" => 0,
-    "Moops" => "0.034",
-    "Moose" => "2.0000",
+    "Moose" => "2.1400",
     "MooseX::AttributeDocumented" => 0,
     "MooseX::AttributeShortcuts" => 0,
     "Path::Tiny" => 0,
     "PerlX::Maybe" => 0,
     "Syntax::Feature::Qs" => "0.2004",
     "Types::Path::Tiny" => 0,
-    "Types::Standard" => 0
+    "Types::Standard" => "1.000000",
+    "namespace::autoclean" => "0.24"
   },
   "TEST_REQUIRES" => {
     "ExtUtils::MakeMaker" => 0,
     "File::Spec" => 0,
+    "IO::Handle" => 0,
+    "IPC::Open3" => 0,
     "Test::Deep" => 0,
     "Test::Differences" => 0,
     "Test::More" => "0.96"
@@ -51,11 +53,12 @@ my %FallbackPrereqs = (
   "ExtUtils::MakeMaker" => 0,
   "File::Spec" => 0,
   "HTML::Entities" => 0,
-  "Kavorka::TraitFor::Parameter::doc" => 0,
-  "List::AllUtils" => 0,
+  "IO::Handle" => 0,
+  "IPC::Open3" => 0,
+  "List::MoreUtils" => 0,
+  "List::Util" => 0,
   "Module::Pluggable" => 0,
-  "Moops" => "0.034",
-  "Moose" => "2.0000",
+  "Moose" => "2.1400",
   "MooseX::AttributeDocumented" => 0,
   "MooseX::AttributeShortcuts" => 0,
   "Path::Tiny" => 0,
@@ -65,7 +68,8 @@ my %FallbackPrereqs = (
   "Test::Differences" => 0,
   "Test::More" => "0.96",
   "Types::Path::Tiny" => 0,
-  "Types::Standard" => 0
+  "Types::Standard" => "1.000000",
+  "namespace::autoclean" => "0.24"
 );
 
 
