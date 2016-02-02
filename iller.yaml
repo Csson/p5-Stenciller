@@ -39,6 +39,9 @@ plugins:
   - +config: Author::CSSON
     splint: 1
 
+  - +extend_plugin: TravisYML
+    test_authordeps: 0
+
   - +extend_plugin: Splint
     type_libraries: Types::Stenciller=Stencil,Stenciller
     attribute_renderer: HTML=HtmlDefault, markdown=HtmlDefault
