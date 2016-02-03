@@ -134,11 +134,11 @@ sub clone_with_loop_value {
     my $loop_value = shift;
 
     my $clone = Stenciller::Stencil->new(
-        before_input => [$self->map_before_input( sub { $_ =~ s{ \[ var \] }{$loop_value}rx })],
-               input => [$self->map_input( sub { $_ =~ s{ \[ var \] }{$loop_value}rx })],
-             between => [$self->map_between( sub { $_ =~ s{ \[ var \] }{$loop_value}rx })],
-              output => [$self->map_output( sub { $_ =~ s{ \[ var \] }{$loop_value}rx })],
-        after_output => [$self->map_after_output( sub {  $_ =~ s{ \[ var \] }{$loop_value}rx })],
+        before_input => [$self->map_before_input( sub { my $text = $_; $text =~ s{ \[ var \] }{$loop_value}x; $text })],
+               input => [$self->map_input( sub { my $text = $_; $text =~ s{ \[ var \] }{$loop_value}x; $text })],
+             between => [$self->map_between( sub { my $text = $_; $text =~ s{ \[ var \] }{$loop_value}x; $text })],
+              output => [$self->map_output( sub { my $text = $_; $text =~ s{ \[ var \] }{$loop_value}x; $text })],
+        after_output => [$self->map_after_output( sub { my $text = $_; $text =~ s{ \[ var \] }{$loop_value}x; $text })],
         stencil_name => $self->stencil_name . "_$loop_value",
         (map { $_ => $self->$_ } qw/line_number extra_settings/)
     );
