@@ -12,13 +12,19 @@ Revision history for Stenciller
  [New Features]
 
  [Other Changes]
-  - Removed Stenciller::Wrap. Its contents are now in Stenciller.pm.
-  - Removed Stenciller::Standard.
 
  [Requirements]
-  - Removed dependency on Kavorka/Moops, so will now work on 5.10+ (instead of 5.14+).
 
  [Testing]
+
+0.1400 2016-02-03T21:39:45Z UTC
+ [Other Changes]
+ - Removed Stenciller::Wrap. Its contents are now in Stenciller.pm.
+ - Removed Stenciller::Standard.
+
+ [Requirements]
+ - Removed dependency on Kavorka/Moops, so will now work on 5.10+ (instead
+   of 5.14+).
 
 0.1302 2015-11-28T15:40:49Z UTC
  [Enhancements]
