@@ -2,11 +2,11 @@
 
 Stenciller - Transforms a flat file format to different output
 
-![Requires Perl 5.10.1+](https://img.shields.io/badge/perl-5.10.1+-brightgreen.svg) [![Travis status](https://api.travis-ci.org/Csson/p5-Stenciller.svg?branch=master)](https://travis-ci.org/Csson/p5-Stenciller) ![coverage 91.0%](https://img.shields.io/badge/coverage-91.0%-yellow.svg)
+![Requires Perl 5.10.1+](https://img.shields.io/badge/perl-5.10.1+-brightgreen.svg) [![Travis status](https://api.travis-ci.org/Csson/p5-Stenciller.svg?branch=master)](https://travis-ci.org/Csson/p5-Stenciller) 
 
 # VERSION
 
-Version 0.1303, released 2016-02-02.
+Version 0.1303, released 2016-02-03.
 
 # SYNOPSIS
 
